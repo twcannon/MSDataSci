@@ -9,6 +9,7 @@ A repo for the ETL processes that the analysts will use for in-taking and proces
 - [Python 3](https://www.python.org/)
     - Pip (should be an option to include in the python download)
     - virtual env: ```pip install virtualenv```
+    - unix virtual env wrapper: ```pip install virtualenvwrapper```
     - windows virtual env wrapper: ```pip install virtualenvwrapper-win```
 
 #### Python Environment Setup

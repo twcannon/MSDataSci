@@ -3,18 +3,23 @@ import matplotlib.pyplot as plt
 
 debug = False
 
+
+
+
 sample_data = np.genfromtxt('501/data/project_one/TABLE2.csv', delimiter = ',')
 print('Sample Data: \n'+sample_data) if debug else next
 
-q_labels = ['q1','q2','q3','q4','q5']
 doc_labels = ['cl','c2','c3','c4','c5','m1','m2','m3','m4']
 terms = ['human','interface','computer','user','system','response','time','EPS','survey','trees','graph','minors']
+
+
+
+
 
 T,S,D = np.linalg.svd(sample_data, full_matrices = False)
 print('Calculated T Data: \n'+T) if debug else next
 print('Calculated S Data: \n'+S) if debug else next
 print('Calculated D Data: \n'+D) if debug else next
-
 
 Si = 1/S
 Si = Si*np.identity(9)
@@ -24,6 +29,38 @@ Dt = np.transpose(D)
 print('Transposed D: \n'+Dt) if debug else next
 
 
+
+
+
+
+
+def plot_labels(data,labels,offset):
+    for i in range(len(labels)):
+        plt.text(data[i,0]+offset, data[i,1]-offset, labels[i], fontsize=8)
+
+
+
+
+
+
+
+plt.scatter(T[:,0],  T[:,1],  color='red',   marker='.', label='Terms')
+plt.scatter(Dt[:,0], Dt[:,1], color='blue',  marker='s', label='Documents')
+plot_labels(T,terms,0.015)
+plot_labels(Dt,doc_labels,0.015)
+plt.title('2-D plot of Terms and Documents with Queries')
+plt.xlabel('Dimension-1')
+plt.ylabel('Dimension-2')
+plt.legend()
+plt.show()
+
+
+
+
+
+
+
+q_labels = ['q1','q2','q3','q4','q5']
 X = [[0,0,0,1,0],
     [1,0,1,0,0],
     [1,1,0,0,0],
@@ -41,22 +78,25 @@ Q = np.matmul(np.matmul(np.transpose(X),T),Si)
 print('Calculated Query Data: \n'+Q) if debug else next
 
 
-def plot_labels(data,labels,offset):
-    for i in range(len(labels)):
-        plt.text(data[i,0]+offset, data[i,1]-offset, labels[i], fontsize=8)
+
+
+
+
 
 
 plt.scatter(T[:,0],  T[:,1],  color='red',   marker='.', label='Terms')
 plt.scatter(Dt[:,0], Dt[:,1], color='blue',  marker='s', label='Documents')
 plt.scatter(Q[:,0],  Q[:,1],  color='green', marker='x', label='Queries')
-plt.title('2-D plot of Terms and Documents with Queries')
-plt.xlabel('Dimension-1')
-plt.ylabel('Dimension-2')
-
 plot_labels(T,terms,0.015)
 plot_labels(Dt,doc_labels,0.015)
 plot_labels(Q,q_labels,0.015)
-
-
+plt.title('2-D plot of Terms and Documents with Queries')
+plt.xlabel('Dimension-1')
+plt.ylabel('Dimension-2')
 plt.legend()
 plt.show()
+
+
+
+
+

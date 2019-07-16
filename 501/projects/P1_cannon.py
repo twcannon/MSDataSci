@@ -45,15 +45,15 @@ def plot_labels(data,labels,offset):
 
 
 
-# plt.scatter(T[:,0],  T[:,1],  color='red',   marker='.', label='Terms')
-# plt.scatter(Dt[:,0], Dt[:,1], color='blue',  marker='s', label='Documents')
-# plot_labels(T,terms,0.015)
-# plot_labels(Dt,doc_labels,0.015)
-# plt.title('2-D plot of Terms and Documents with Queries')
-# plt.xlabel('Dimension-1')
-# plt.ylabel('Dimension-2')
-# plt.legend()
-# plt.show()
+plt.scatter(T[:,0],  T[:,1],  color='red',   marker='.', label='Terms')
+plt.scatter(Dt[:,0], Dt[:,1], color='blue',  marker='s', label='Documents')
+plot_labels(T,terms,0.015)
+plot_labels(Dt,doc_labels,0.015)
+plt.title('2-D plot of Terms and Documents with Queries')
+plt.xlabel('Dimension-1')
+plt.ylabel('Dimension-2')
+plt.legend()
+plt.show()
 
 
 
@@ -85,17 +85,17 @@ print('Calculated Query Data: \n'+Q) if debug else next
 
 
 
-# plt.scatter(T[:,0],  T[:,1],  color='red',   marker='.', label='Terms')
-# plt.scatter(Dt[:,0], Dt[:,1], color='blue',  marker='s', label='Documents')
-# plt.scatter(Q[:,0],  Q[:,1],  color='green', marker='x', label='Queries')
-# plot_labels(T,terms,0.015)
-# plot_labels(Dt,doc_labels,0.015)
-# plot_labels(Q,q_labels,0.015)
-# plt.title('2-D plot of Terms and Documents with Queries')
-# plt.xlabel('Dimension-1')
-# plt.ylabel('Dimension-2')
-# plt.legend()
-# plt.show()
+plt.scatter(T[:,0],  T[:,1],  color='red',   marker='.', label='Terms')
+plt.scatter(Dt[:,0], Dt[:,1], color='blue',  marker='s', label='Documents')
+plt.scatter(Q[:,0],  Q[:,1],  color='green', marker='x', label='Queries')
+plot_labels(T,terms,0.015)
+plot_labels(Dt,doc_labels,0.015)
+plot_labels(Q,q_labels,0.015)
+plt.title('2-D plot of Terms and Documents with Queries')
+plt.xlabel('Dimension-1')
+plt.ylabel('Dimension-2')
+plt.legend()
+plt.show()
 
 
 

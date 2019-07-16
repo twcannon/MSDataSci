@@ -1,4 +1,5 @@
 import numpy as np
+from scipy import spatial
 import matplotlib.pyplot as plt
 
 debug = False
@@ -44,15 +45,15 @@ def plot_labels(data,labels,offset):
 
 
 
-plt.scatter(T[:,0],  T[:,1],  color='red',   marker='.', label='Terms')
-plt.scatter(Dt[:,0], Dt[:,1], color='blue',  marker='s', label='Documents')
-plot_labels(T,terms,0.015)
-plot_labels(Dt,doc_labels,0.015)
-plt.title('2-D plot of Terms and Documents with Queries')
-plt.xlabel('Dimension-1')
-plt.ylabel('Dimension-2')
-plt.legend()
-plt.show()
+# plt.scatter(T[:,0],  T[:,1],  color='red',   marker='.', label='Terms')
+# plt.scatter(Dt[:,0], Dt[:,1], color='blue',  marker='s', label='Documents')
+# plot_labels(T,terms,0.015)
+# plot_labels(Dt,doc_labels,0.015)
+# plt.title('2-D plot of Terms and Documents with Queries')
+# plt.xlabel('Dimension-1')
+# plt.ylabel('Dimension-2')
+# plt.legend()
+# plt.show()
 
 
 
@@ -84,17 +85,74 @@ print('Calculated Query Data: \n'+Q) if debug else next
 
 
 
-plt.scatter(T[:,0],  T[:,1],  color='red',   marker='.', label='Terms')
-plt.scatter(Dt[:,0], Dt[:,1], color='blue',  marker='s', label='Documents')
-plt.scatter(Q[:,0],  Q[:,1],  color='green', marker='x', label='Queries')
-plot_labels(T,terms,0.015)
-plot_labels(Dt,doc_labels,0.015)
-plot_labels(Q,q_labels,0.015)
-plt.title('2-D plot of Terms and Documents with Queries')
-plt.xlabel('Dimension-1')
-plt.ylabel('Dimension-2')
-plt.legend()
-plt.show()
+# plt.scatter(T[:,0],  T[:,1],  color='red',   marker='.', label='Terms')
+# plt.scatter(Dt[:,0], Dt[:,1], color='blue',  marker='s', label='Documents')
+# plt.scatter(Q[:,0],  Q[:,1],  color='green', marker='x', label='Queries')
+# plot_labels(T,terms,0.015)
+# plot_labels(Dt,doc_labels,0.015)
+# plot_labels(Q,q_labels,0.015)
+# plt.title('2-D plot of Terms and Documents with Queries')
+# plt.xlabel('Dimension-1')
+# plt.ylabel('Dimension-2')
+# plt.legend()
+# plt.show()
+
+
+
+
+
+
+
+
+
+T_dist_list = []
+T_dist_index = []
+Dt_dist_list = []
+Dt_dist_index = []
+for i in range(len(Q)):
+    T_dist_list.append([np.inf,np.inf,np.inf])
+    T_dist_index.append([np.inf,np.inf,np.inf])
+    Dt_dist_list.append([np.inf,np.inf,np.inf])
+    Dt_dist_index.append([np.inf,np.inf,np.inf])
+    q=Q[i,0:2]
+
+    for j in range(len(T)):
+        t=T[j,0:2]
+        list_max = np.amax(T_dist_list[i])
+        min_index = np.where(T_dist_list[i] == np.amax(list_max))[0][0]
+        d = spatial.distance.cosine(q, t)
+        if d < list_max:
+            T_dist_list[i][min_index] = d
+            T_dist_index[i][min_index] = j
+        print(T_dist_list) if debug else next
+        print(T_dist_index) if debug else next
+
+    for k in range(len(Dt)):
+        dt=Dt[k,0:2]
+        list_max = np.amax(Dt_dist_list[i])
+        min_index = np.where(Dt_dist_list[i] == np.amax(list_max))[0][0]
+        d = spatial.distance.cosine(q, t)
+        if d < list_max:
+            Dt_dist_list[i][min_index] = d
+            Dt_dist_index[i][min_index] = k
+        print(Dt_dist_list) if debug else next
+        print(Dt_dist_index) if debug else next
+
+
+
+
+
+
+
+for i in range(len(Q)):
+    print('\nThe three closest Terms by cosine distance to Query {} are:'.format(q_labels[i]))
+    for j in range(len(T_dist_list[i])):
+        print('    Term: {}, by a distance of: {}'.format(terms[T_dist_index[i][j]],T_dist_list[i][j]))
+
+for i in range(len(Q)):
+    print('\nThe three closest Documents by cosine distance to Query {} are:'.format(q_labels[i]))
+    for j in range(len(T_dist_list[i])):
+        print('    Document: {}, by a distance of: {}'.format(doc_labels[T_dist_index[i][j]],T_dist_list[i][j]))
 
 
 

@@ -18,7 +18,7 @@ A repo for the ETL processes that the analysts will use for in-taking and proces
     - the comand prompt prefix should now be changed to somthing like ```(MSDataSci) C:\path```
     - if this is not the case, try ```workon MSDataSci```
 - ```cd``` to the main MSDataSci directory - normally ```C:\eSite\MSDataSci```
-- set this environment to the project directory with ```setprojectdir .```
+- set this environment to the project directory with ```setvirtualenvproject``` or ```setprojectdir .``` for windows
 - type ```deactivate``` to exit the virtual environment
 - you can now type ```workon MSDataSci``` from anywhere and it will open the virtual environment and move you to the top eSiteTEL directory
 - Here is a general [setup tutorial](http://timmyreilly.azurewebsites.net/python-pip-virtualenv-installation-on-windows/) that gives a little more detail about the process above. Although we only really care about the virtual environment sections.

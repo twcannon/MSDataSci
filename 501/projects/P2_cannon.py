@@ -1,7 +1,7 @@
 import numpy as np
 from scipy import stats
 from sklearn import linear_model
-from sklearn.metrics import mean_squared_error, mean_absolute_error
+from sklearn.metrics import mean_squared_error, mean_absolute_error, confusion_matrix
 from sklearn import svm
 import matplotlib.pyplot as plt
 import sys
@@ -147,12 +147,27 @@ yy_up = yy + np.sqrt(1 + a ** 2) * margin
 
 
 
-plt.figure()
-plt.plot(xx, yy, 'k-')
-plt.plot(xx, yy_down, 'k--')
-plt.plot(xx, yy_up, 'k--')
-plt.scatter( D1x, D1y, color='red', marker='.', label="Short")
-plt.scatter( D2x, D2y, color='blue', marker='.', label="Long")
-plt.scatter(clf.support_vectors_[:, 0], clf.support_vectors_[:, 1], marker='o',
-                facecolors='none', edgecolors='black')
-plt.show()
+# plt.figure()
+# plt.plot(xx, yy, 'k-')
+# plt.plot(xx, yy_down, 'k--')
+# plt.plot(xx, yy_up, 'k--')
+# plt.scatter( D1x, D1y, color='red', marker='.', label="Short")
+# plt.scatter( D2x, D2y, color='blue', marker='.', label="Long")
+# plt.scatter(clf.support_vectors_[:, 0], clf.support_vectors_[:, 1], marker='o',
+#                 facecolors='none', edgecolors='black')
+# plt.show()
+
+
+
+y_true = S_idx
+y_predicted = clf.predict(np.dstack((data[:,14],data[:,18]))[0])
+tn, fp, fn, tp = confusion_matrix(y_true,y_predicted).ravel()
+PPV = tp/(tp+fp)
+NPV = tn/(tn+fn)
+TPR = tp/(tp+fn)
+TNR = tn/(tn+fp)
+
+print('PPV: {0:0.03f}'.format(PPV))
+print('NPV: {0:0.03f}'.format(NPV))
+print('TPR: {0:0.03f}'.format(TPR))
+print('TNR: {0:0.03f}'.format(TNR))

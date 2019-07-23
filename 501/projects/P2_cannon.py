@@ -9,22 +9,32 @@ debug = True
 
 headers = ['burst','class','3 class','complete','duration','sig_dur','sig_asym','sig_lag','pulse pk flux','sig_pk flux','S(1+2+3)','sigS(1+2+3)','hr31 (erg)','sig hr31 (erg)','log10(dur)','asymmetry','lag','log10(p256)','log10(S)','log10(hr31)']
 
-data = np.genfromtxt('501/data/project_two/2010 GRB pulse table.csv', delimiter = ',',skip_header=True)
+# data = np.genfromtxt('501/data/project_two/2010 GRB pulse table.csv', delimiter = ',',skip_header=True)
 
+data = []
 
+import csv
+with open('501/data/project_two/2010 GRB pulse table.csv', newline='\n') as csvfile:
+    reader = csv.reader(csvfile, delimiter=',', quotechar='|')
+    next(reader)
+    for row in reader:
+        data.append(np.asarray(row))
 
+data = np.asarray(data)
 
+# print(data)
+# sys.exit()
 
 training_data = data[:700,:]
 test_data = data[701:,:]
 
-X1 = training_data[:,14] # log10(dur)
-X2 = training_data[:,15] # asymmetry
-Y = training_data[:,18] # log10(lag)
-X = training_data[:,14:16] # log10(duration) and asymmetry
+X1 = training_data[:,14].astype(np.float32) # log10(dur)
+X2 = training_data[:,15].astype(np.float32) # asymmetry
+Y = training_data[:,18].astype(np.float32) # log10(lag)
+X = training_data[:,14:16].astype(np.float32) # log10(duration) and asymmetry
 
-Y_test = test_data[:,18]
-X_test = test_data[:,14:16] # log10(duration) and asymmetry
+Y_test = test_data[:,18].astype(np.float32)
+X_test = test_data[:,14:16].astype(np.float32) # log10(duration) and asymmetry
 
 
 
@@ -44,11 +54,13 @@ Yline = intercept + slope*Xp
 
 
 
-plt.figure()
-plt.plot( Xp, Yline )
-plt.title( "log10(duration) -vs- log10(lag)")
-plt.scatter( X1, Y, color='red', marker='.' )
-plt.show()
+# plt.figure()
+# plt.plot( Xp, Yline )
+# plt.title( "log10(duration) -vs- log10(lag)")
+# plt.scatter( X1, Y, color='red', marker='.' )
+# plt.xlabel( "log10(duration)" )
+# plt.ylabel( "log10(lag)" )
+# plt.show()
 
 
 
@@ -77,4 +89,30 @@ print('MAE: {0:0.3f}'.format(MAE))
 
 
 
+S_idx = data[:,1] == 'S'
+not_S_idx = data[:,1] != 'S'
 
+D1 = data[S_idx,:]
+D2 = data[not_S_idx,:]
+
+D1x = D1[:,14].astype(np.float32)
+D2x = D2[:,14].astype(np.float32)
+D1y = D1[:,18].astype(np.float32)
+D2y = D2[:,18].astype(np.float32)
+
+print(D1x)
+print(D2x)
+print(D1y)
+print(D2y)
+
+# sys.exit()
+
+
+plt.figure()
+plt.title( "Scatter plot [Labeled Data]")
+plt.xlabel( "log10(duration)" )
+plt.ylabel( "log10(lag)" )
+plt.scatter( D1x, D1y, color='red', marker='.', label="Short")
+plt.scatter( D2x, D2y, color='blue', marker='.', label="Long")
+plt.legend()
+plt.show()

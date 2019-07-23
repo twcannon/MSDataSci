@@ -4,7 +4,6 @@ from sklearn import linear_model
 from sklearn.metrics import mean_squared_error, mean_absolute_error, confusion_matrix
 from sklearn import svm
 import matplotlib.pyplot as plt
-import sys
 debug = True
 
 
@@ -75,7 +74,7 @@ model.fit(X,Y)
 Yhat = model.predict(X_test)
 print(model.coef_[0])
 print(model.coef_[1])
-print('r coefficients: \n\tX1 '+str(model.coef_[0])+'\n\tX2 '+str(model.coef_[0]))
+print('r coefficients: \n\tX1 '+str(model.coef_[0])+'\n\tX2 '+str(model.coef_[1]))
 
 
 

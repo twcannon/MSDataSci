@@ -67,7 +67,8 @@ print('===========================\n')
 
 
 
-
+print('===========================')
+print('Q3)')
 from sklearn.decomposition import PCA
 
 data = np.genfromtxt('506/data/A.csv', delimiter = ',')
@@ -78,5 +79,7 @@ pca = PCA(n)
 pca.fit(data)
 print('Using an n of {}, we are returned {} dimensions from PCA'.format(n,pca.n_components_))
 print('with an explained variance of {}'.format(pca.explained_variance_))
+print('---------------------------')
+print('===========================\n')
 
-print(pca.__dict__)
+# print(pca.__dict__)

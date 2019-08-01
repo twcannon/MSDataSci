@@ -4,43 +4,34 @@ from sklearn.linear_model import OrthogonalMatchingPursuit, Lasso
 x=np.array([[1,8,-3,5,4,-9,4],[1,-2,4,8,-2,-3,2],[1,9,6,-7,4,-5,-5],[1,6,-14,-5,-3,9,-2],[1,-2,11,-6,3,-5,1]])
 y=np.array([[-32.21],[6.10],[-37.62],[-36.60],[16.75]])
 
-print(x)
-print(y)
-
 clf = Lasso(alpha=0.5)
 clf.fit(x,y)
-print(clf.coef_)
-print(clf.intercept_)
+
+print('===========================')
+print('Q1)')
+print('The regularization coefficients from Lasso regression are: \n' + str(clf.coef_))
+
+index=[]
+for i in range(len(clf.coef_)):
+    if clf.coef_[i] != 0:
+        index.append(True)
+    else:
+        index.append(False)
+x_l = x[:,index]
+print('The new regularized X = \n' + str(x_l))
+
+print('---------------------------')
+omp = OrthogonalMatchingPursuit().fit(x_l, y)
+coef = omp.coef_
+
+print('The coefficients of the OMP sparse model are:')
+for i in range(len(coef)):
+    print('X{} = {}'.format(i,coef[i]))
+print('===========================\n')
 
 
-# reg = OrthogonalMatchingPursuit().fit(x, y)
-
-# reg.set_params(s=0.5)
-
-
-
-# cur_x = 3 # The algorithm starts at x=3
-# rate = 0.01 # Learning rate
-# precision = 0.000001 #This tells us when to stop the algorithm
-# previous_step_size = 1 #
-# max_iters = 10000 # maximum number of iterations
-# iters = 0 #iteration counter
-# df = lambda x: 2*(x+5) #Gradient of our function
-# In [4]:
-# while previous_step_size > precision and iters < max_iters:
-#     prev_x = cur_x #Store current x value in prev_x
-#     cur_x = cur_x - rate * df(prev_x) #Grad descent
-#     previous_step_size = abs(cur_x - prev_x) #Change in x
-#     iters = iters+1 #iteration count
-#     print("Iteration",iters,"\nX value is",cur_x) #Print iterations
-    
-# print("The local minimum occurs at", cur_x)
-
-
-
-
-
-
+print('===========================')
+print('Q2)')
 
 def grad_desc(gamma):
     # dfdx (found by hand)
@@ -52,7 +43,7 @@ def grad_desc(gamma):
     y_0 = 2
     i = 0
     i_max = 10
-    print('\nFor gamma = {}'.format(gamma))
+    print('For gamma = {}'.format(gamma))
     print('Starting values of x and y:  \t x_0 = {}    y_0 = {}'.format(x_0,y_0))
     while i < i_max:
         x_prev = x_0
@@ -67,7 +58,25 @@ def grad_desc(gamma):
         # print('After iteration {}, the values of x and y are: \n'.format(i)) 
         print('For iteration = {}: \t\t x_{} = {}    y_{} = {}'.format(i,i,x_0,i,y_0))
 
-
-
 grad_desc(0.05)
+print('---------------------------')
 grad_desc(0.5)
+print('===========================\n')
+
+
+
+
+
+
+from sklearn.decomposition import PCA
+
+data = np.genfromtxt('506/data/A.csv', delimiter = ',')
+
+n = .70
+pca = PCA(n)
+
+pca.fit(data)
+print('Using an n of {}, we are returned {} dimensions from PCA'.format(n,pca.n_components_))
+print('with an explained variance of {}'.format(pca.explained_variance_))
+
+print(pca.__dict__)

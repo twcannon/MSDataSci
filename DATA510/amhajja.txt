@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/main/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/main/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/main/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/static/main/favicon_io/site.webmanifest">
+
+    <link href="/static/main/css/style.css" rel="stylesheet" type="text/css" />
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <title>Ayman Hajja, PhD</title>
+</head>
+<>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="padding: 10px; padding-left: 20px; padding-right: 20px;">
+
+    <a class="navbar-brand" href="#" style="font-size: 25px; font-family: lane_-_narrowregular;">
+        <span style="color: #e46262;">AYMAN</span>
+        <span style="color: #57b948;">HAJJA</span>
+        PHD
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#research">Research</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#teaching">Teaching</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<a class="anchor" id="about"></a>
+
+<div style="background-color: white; padding-top: 100px; padding-bottom: 20px;">
+    <div style="text-align: center; margin: 0 auto; width: 85%;">
+        <h2 style="display: inline-block; text-align: center; border-top: darkgray solid .5px; border-bottom: darkgray solid .5px; padding: 10px; margin: 0 auto;">About Me</h2>
+        <div class="row">
+
+            <div class="col-sm-12 col-lg-4 col-xl-3 d-md-none d-lg-block">
+                <img src="/static/main/img/Optimized-pic2.png" style="width: 100%; padding: 20px;">
+            </div>
+
+            <div class="col-sm-12 col-md-12 col-lg-8 col-xl-9" style="text-align: justify;">
+                <div style="margin: 20px;">
+                    I am an Assistant Professor in the Department of Computer Science at The College of Charleston.
+                    I received my doctorate in Computer Science at the University of North Carolina at Charlotte under the
+                    supervision of Professor Zbigniew W. Ras in the field of data mining; more precisely, object-driven and
+                    temporal-based action rules.
+                </div>
+
+                <div style="margin: 20px;">
+                    I earned my Bachelor of Science in Computer Information Systems from Yarmouk University, Irbid, Jordan,
+                    and my Master of Science in Computer Science from Northern Illinois University, IL.
+                </div>
+
+                <div style="margin: 20px;">
+                    Other than data mining and machine learning, my interests lie in computer vision, intelligent tutoring
+                    systems, crowdsourcing and collective intelligence, gamification, social networks and smart web/mobile
+                    systems and their uses to connect people and promote societies. I am also interested in philosophy, and
+                    few topics in social science; such as cognitive psychology, evolutionary psychology, social
+                    epidemiology, and anthropology.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a class="anchor" id="research"></a>
+
+<div style="background-color: #f2f3f4; padding-top: 40px; padding-bottom: 20px;">
+    <div style="text-align: center; margin: 0 auto; width: 85%;">
+
+        <h2 style="display: inline-block; text-align: center; border-top: darkgray solid .5px; border-bottom: darkgray solid .5px; padding: 10px; margin: 0 auto; margin-bottom: 10px;">Research</h2>
+
+
+        <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+            <li class="nav-item" style="">
+                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true" style="width: 200px;">Publications</a>
+            </li>
+            <li class="nav-item" style="">
+                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false" style="width: 200px;">Grants</a>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                <ul class="list-group" style="border-radius: 0px;">
+                    
+                        <li class="list-group-item" style="margin: 5px; border-left: none; border-right: none; border-radius: 0px; border-width: .5px; border-color: darkgray; text-align: left; font-size: 20px; padding: 0px;">
+                            <div class="row" aria-expanded="false" >
+                                <div class="col-md-12">
+                                    <div style="display: inline-block; margin: 10px;">
+                                        &quot;Multipurpose Web-Platform for Labeling Audio Segments Efficiently and Effectively&quot;, A. Hajja, G. Hiers, P. Arbajian, Z.W. Ras, A. Wieczorkowska, in &quot;Foundations of Intelligent Systems, Proceedings of ISMIS 2018&quot;, M. Ceci, et al. (Eds), LNAI, Vol. 11177, Springer, 2018
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    
+                        <li class="list-group-item" style="margin: 5px; border-left: none; border-right: none; border-radius: 0px; border-width: .5px; border-color: darkgray; text-align: left; font-size: 20px; padding: 0px;">
+                            <div class="row" aria-expanded="false" >
+                                <div class="col-md-12">
+                                    <div style="display: inline-block; margin: 10px;">
+                                        &quot;Segment-Removal Based Stuttered Speech Remediation&quot;, P. Arbajian, A. Hajja, Z.W. Ras, A. Wieczorkowska, in &quot;New Frontiers in Mining Complex Patterns&quot;, Proceedings of NFMCP 2017, ECML/PKDD Workshop in Skopje, Macedonia, 2017
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    
+                        <li class="list-group-item" style="margin: 5px; border-left: none; border-right: none; border-radius: 0px; border-width: .5px; border-color: darkgray; text-align: left; font-size: 20px; padding: 0px;">
+                            <div class="row" aria-expanded="false" >
+                                <div class="col-md-12">
+                                    <div style="display: inline-block; margin: 10px;">
+                                        &quot;Reduction of Readmissions to Hospitals Based on Actionable Knowledge Discovery and Personalization&quot;, M. Al-Mardini, A. Hajja, Z.W. Ras, L. Clover, D. Olaleye, Y. Park, J. Paulson, Y. Xiao, in Beyond Databases Architectures and Structures - BDAS 2016, Conference Proceedings, (Eds. S. Kozielski, et al.), Communications in Computer and Information Science, Vol. 613, Springer, 2016, 39-55
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    
+                        <li class="list-group-item" style="margin: 5px; border-left: none; border-right: none; border-radius: 0px; border-width: .5px; border-color: darkgray; text-align: left; font-size: 20px; padding: 0px;">
+                            <div class="row" aria-expanded="false" >
+                                <div class="col-md-12">
+                                    <div style="display: inline-block; margin: 10px;">
+                                        &quot;Predicting the Primary Medical Procedure Through Clustering of Patients&#39; Diagnoses&quot;, M. Al-Mardini, A. Hajja, Z.W. Ras, L. Clover, D. Olaleye, in &quot;New Frontiers in Mining Complex Patterns&quot;, Post-proceedings of NFMCP 2016, ECML/PKDD Workshop in Riva del Garda, Italy, LNAI, Vol. 10312, Springer, 2017, 117-131
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    
+                        <li class="list-group-item" style="margin: 5px; border-left: none; border-right: none; border-radius: 0px; border-width: .5px; border-color: darkgray; text-align: left; font-size: 20px; padding: 0px;">
+                            <div class="row" aria-expanded="false" >
+                                <div class="col-md-12">
+                                    <div style="display: inline-block; margin: 10px;">
+                                        &quot;Predicting Negative Side Effects of Surgeries Through Clustering&quot;, Hajja, A., Touati, H., Ras, Z.W., Studnicki, J., Wieczorkowska, A., in &quot;New Frontiers in Mining Complex Patterns&quot;, Post-proceedings of NFMCP 2014, ECML/PKDD Workshop, Nancy, France, LNAI, Vol. 8983, Springer, 2015, 41-55
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    
+                        <li class="list-group-item" style="margin: 5px; border-left: none; border-right: none; border-radius: 0px; border-width: .5px; border-color: darkgray; text-align: left; font-size: 20px; padding: 0px;">
+                            <div class="row" aria-expanded="false" >
+                                <div class="col-md-12">
+                                    <div style="display: inline-block; margin: 10px;">
+                                        &quot;Hierarchical Object-driven Action Rules&quot;, A. Hajja, Z.W. Ras, A. Wieczorkowska, Special issue on Mining Complex Patterns, A. Appice et al (Eds), Journal of Intelligent Information Systems, Springer, Vol. 42, No. 2, 2014, 207-232
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    
+                        <li class="list-group-item" style="margin: 5px; border-left: none; border-right: none; border-radius: 0px; border-width: .5px; border-color: darkgray; text-align: left; font-size: 20px; padding: 0px;">
+                            <div class="row" aria-expanded="false" >
+                                <div class="col-md-12">
+                                    <div style="display: inline-block; margin: 10px;">
+                                        &quot;Object-driven Action Rules&quot;, A. Hajja, Z.W. Ras, Encyclopedia of Information Science and Technology, Chapter 114, IGI Global, 2014, 1197-1206
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    
+                        <li class="list-group-item" style="margin: 5px; border-left: none; border-right: none; border-radius: 0px; border-width: .5px; border-color: darkgray; text-align: left; font-size: 20px; padding: 0px;">
+                            <div class="row" aria-expanded="false" >
+                                <div class="col-md-12">
+                                    <div style="display: inline-block; margin: 10px;">
+                                        &quot;Pair-based Object-driven Action Rules&quot;, A. Hajja, A. Wieczorkowska, Z.W. Ras, R. Gubrynowicz, in &quot;New Frontiers in Mining Complex Patterns&quot;, NFMCP 2012, ECML/PKDD Workshop, Bristol, United Kingdom, September, 2012, LNAI 7765, Springer, 2013, 79-93
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    
+                        <li class="list-group-item" style="margin: 5px; border-left: none; border-right: none; border-radius: 0px; border-width: .5px; border-color: darkgray; text-align: left; font-size: 20px; padding: 0px;">
+                            <div class="row" aria-expanded="false" >
+                                <div class="col-md-12">
+                                    <div style="display: inline-block; margin: 10px;">
+                                        &quot;Personalized Action Rules for Side Effects Object Grouping&quot;, H. Touati, J. Kuang, A. Hajja, Z.W. Ras, in the Special Issue on &quot;Knowledge Discovery&quot;, G. Wang (Ed.), International Journal of Intelligence Science (IJIS), Scientific Research, Vol. 3, No. 1A, 2013, 24-33
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    
+                        <li class="list-group-item" style="margin: 5px; border-left: none; border-right: none; border-radius: 0px; border-width: .5px; border-color: darkgray; text-align: left; font-size: 20px; padding: 0px;">
+                            <div class="row" aria-expanded="false" >
+                                <div class="col-md-12">
+                                    <div style="display: inline-block; margin: 10px;">
+                                        &quot;Object-driven Action Rules and their Application to Hypernasality Treatment&quot;, A. Hajja, A. Wieczorkowska, Z.W. Ras, R. Gubrynowicz, Proceedings of ECML-PKDD Workshop on New Frontiers in Mining Complex Patterns, Bristol, UK, September 24-28, 2012, 104-115
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    
+                        <li class="list-group-item" style="margin: 5px; border-left: none; border-right: none; border-radius: 0px; border-width: .5px; border-color: darkgray; text-align: left; font-size: 20px; padding: 0px;">
+                            <div class="row" aria-expanded="false" >
+                                <div class="col-md-12">
+                                    <div style="display: inline-block; margin: 10px;">
+                                        &quot;Gamesourcing to Acquire Labeled Human Pose Estimation Data&quot;,   R. Souvenir, A. Hajja, S. Spurlock, in Computer Vision and Pattern Recognition Workshops (CVPRW), Providence, Rhode Island, June 16-21, 2012
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    
+                </ul>
+            </div>
+
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                <ul class="list-group" style="border-radius: 0px;">
+                    
+                        <li class="list-group-item" style="margin: 5px; border-left: none; border-right: none; border-radius: 0px; border-width: .5px; border-color: darkgray; text-align: left; font-size: 20px; padding: 0px;">
+                            <div class="row" aria-expanded="false" >
+                                <div class="col-md-12">
+                                    <div style="display: inline-block; margin: 10px;">
+                                        &quot;PolyPy: A Tool for Randomly Generating Code for CS Education&quot;, A. Hunt, A. Hajja, SSM Summer Research Grant, College of Charleston, 5/20/2018 - 8/20/2018, $5,500.00
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    
+                        <li class="list-group-item" style="margin: 5px; border-left: none; border-right: none; border-radius: 0px; border-width: .5px; border-color: darkgray; text-align: left; font-size: 20px; padding: 0px;">
+                            <div class="row" aria-expanded="false" >
+                                <div class="col-md-12">
+                                    <div style="display: inline-block; margin: 10px;">
+                                        &quot;Readmissions to Hospitals and Patient Safety&quot;, Z.W. Ras Ras Ras Ras (PI), A. Hajja, J. Studnicki (co-PIs), SAS Institute, 9/14/2015 - 3/13/2016, $111,946.00
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<a class="anchor" id="teaching"></a>
+
+<div style="background-color: white; padding-top: 40px; padding-bottom: 50px;">
+    <div style="text-align: center; margin: 0 auto; width: 85%;">
+        <h2 style="display: inline-block; text-align: center; border-top: darkgray solid .5px; border-bottom: darkgray solid .5px; padding: 10px; margin: 0 auto; margin-bottom: 10px;">Courses Taught</h2>
+
+        <ul class="nav nav-pills mb-3 justify-content-center" id="teaching-tab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#teaching-home" role="tab" aria-controls="pills-home" aria-selected="true" style="width: 200px;">Undergradute</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#teaching-profile" role="tab" aria-controls="pills-profile" aria-selected="false" style="width: 200px;">Graduate</a>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="teaching-tabContent">
+            <div class="tab-pane fade show active" id="teaching-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+                <ul class="list-group" style="border-radius: 0px;">
+
+                    
+
+                        <li class="list-group-item" style="border-left: none; border-right: none; border-radius: 0px; border-width: .5px; border-color: darkgray; text-align: left; font-size: 20px; padding: 0px;">
+
+                            <div class="row" style="cursor: pointer;" data-toggle="collapse" href="#course_1" role="button" aria-expanded="false" >
+                                <div class="col-md-9">
+                                    <div style="display: inline-block; margin: 10px;">
+                                        CSCI 220: Computer Programming I
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div style="text-align: right; padding-top: 5px; width: 100%; padding-bottom: 5px; margin: 5px; font-size: 20px;">
+                                        College of Charleston
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="collapse" id="course_1">
+                                <div style="padding: 10px; padding-left: 40px; padding-top: 0px; color: darkgreen; text-align: justify;">
+                                    An introduction to programming and problem solving. Topics include data types, variables, assignment, control structures (selection and iteration), lists, functions, classes, and an introduction to object-oriented programming. Lectures three hours per week.
+                                </div>
+                            </div>
+                        </li>
+                    
+
+                        <li class="list-group-item" style="border-left: none; border-right: none; border-radius: 0px; border-width: .5px; border-color: darkgray; text-align: left; font-size: 20px; padding: 0px;">
+
+                            <div class="row" style="cursor: pointer;" data-toggle="collapse" href="#course_2" role="button" aria-expanded="false" >
+                                <div class="col-md-9">
+                                    <div style="display: inline-block; margin: 10px;">
+                                        CSCI 220L: Programming I Laboratory
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div style="text-align: right; padding-top: 5px; width: 100%; padding-bottom: 5px; margin: 5px; font-size: 20px;">
+                                        College of Charleston
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="collapse" id="course_2">
+                                <div style="padding: 10px; padding-left: 40px; padding-top: 0px; color: darkgreen; text-align: justify;">
+                                    This course is designed to apply the concepts being covered in CSCI 220. Exercises will be assigned each week within a structured setting. Laboratory three hours per week.
+                                </div>
+                            </div>
+                        </li>
+                    
+
+                        <li class="list-group-item" style="border-left: none; border-right: none; border-radius: 0px; border-width: .5px; border-color: darkgray; text-align: left; font-size: 20px; padding: 0px;">
+
+                            <div class="row" style="cursor: pointer;" data-toggle="collapse" href="#course_3" role="button" aria-expanded="false" >
+                                <div class="col-md-9">
+                                    <div style="display: inline-block; margin: 10px;">
+                                        CSCI 250: Intro to Computer Organization and Assembly Language Programming
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div style="text-align: right; padding-top: 5px; width: 100%; padding-bottom: 5px; margin: 5px; font-size: 20px;">
+                                        College of Charleston
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="collapse" id="course_3">
+                                <div style="padding: 10px; padding-left: 40px; padding-top: 0px; color: darkgreen; text-align: justify;">
+                                    An introduction to an assembly language and its implementation in hardware. Topics include the binary and hexadecimal numbering systems, the fetch-execute cycle, the components of the central processing unit, floating point processing, memory, the assembler, and the linker. Programming exercises are developed in the assembly language of a commonly available processor. Lectures three hours per week.
+                                </div>
+                            </div>
+                        </li>
+                    
+
+                        <li class="list-group-item" style="border-left: none; border-right: none; border-radius: 0px; border-width: .5px; border-color: darkgray; text-align: left; font-size: 20px; padding: 0px;">
+
+                            <div class="row" style="cursor: pointer;" data-toggle="collapse" href="#course_4" role="button" aria-expanded="false" >
+                                <div class="col-md-9">
+                                    <div style="display: inline-block; margin: 10px;">
+                                        CSCI 490: Deep Learning (Special Topics)
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div style="text-align: right; padding-top: 5px; width: 100%; padding-bottom: 5px; margin: 5px; font-size: 20px;">
+                                        College of Charleston
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="collapse" id="course_4">
+                                <div style="padding: 10px; padding-left: 40px; padding-top: 0px; color: darkgreen; text-align: justify;">
+                                    An intensive investigation of an area of current interest in computer science. Examples of special topics include: Image Processing; Systems Programming; Computability; Design Patterns. Lectures three hours per week.
+                                </div>
+                            </div>
+                        </li>
+                    
+
+                        <li class="list-group-item" style="border-left: none; border-right: none; border-radius: 0px; border-width: .5px; border-color: darkgray; text-align: left; font-size: 20px; padding: 0px;">
+
+                            <div class="row" style="cursor: pointer;" data-toggle="collapse" href="#course_5" role="button" aria-expanded="false" >
+                                <div class="col-md-9">
+                                    <div style="display: inline-block; margin: 10px;">
+                                        CSCI 499: Web application for Generating Python Questions (Bachelor&#39;s Essay)
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div style="text-align: right; padding-top: 5px; width: 100%; padding-bottom: 5px; margin: 5px; font-size: 20px;">
+                                        College of Charleston
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="collapse" id="course_5">
+                                <div style="padding: 10px; padding-left: 40px; padding-top: 0px; color: darkgreen; text-align: justify;">
+                                    A year-long research and writing project done during the senior year under the close supervision of a tutor from the department. The student must take the initiative in seeking a tutor to help in both the design and the supervision of the project. A project proposal must be submitted in writing and approved by the department prior to registration for the course.
+                                </div>
+                            </div>
+                        </li>
+                    
+
+                        <li class="list-group-item" style="border-left: none; border-right: none; border-radius: 0px; border-width: .5px; border-color: darkgray; text-align: left; font-size: 20px; padding: 0px;">
+
+                            <div class="row" style="cursor: pointer;" data-toggle="collapse" href="#course_6" role="button" aria-expanded="false" >
+                                <div class="col-md-9">
+                                    <div style="display: inline-block; margin: 10px;">
+                                        CSCI 399: Enriching Image Datasets by Obtaining Patch Labels (Independent Study)
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div style="text-align: right; padding-top: 5px; width: 100%; padding-bottom: 5px; margin: 5px; font-size: 20px;">
+                                        College of Charleston
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="collapse" id="course_6">
+                                <div style="padding: 10px; padding-left: 40px; padding-top: 0px; color: darkgreen; text-align: justify;">
+                                    Individual instruction given by a tutor in regularly scheduled meetings (usually once a week).
+                                </div>
+                            </div>
+                        </li>
+                    
+
+                        <li class="list-group-item" style="border-left: none; border-right: none; border-radius: 0px; border-width: .5px; border-color: darkgray; text-align: left; font-size: 20px; padding: 0px;">
+
+                            <div class="row" style="cursor: pointer;" data-toggle="collapse" href="#course_7" role="button" aria-expanded="false" >
+                                <div class="col-md-9">
+                                    <div style="display: inline-block; margin: 10px;">
+                                        CSCI 399: Deep Learning Using TensorFlow (Independent Study)
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div style="text-align: right; padding-top: 5px; width: 100%; padding-bottom: 5px; margin: 5px; font-size: 20px;">
+                                        College of Charleston
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="collapse" id="course_7">
+                                <div style="padding: 10px; padding-left: 40px; padding-top: 0px; color: darkgreen; text-align: justify;">
+                                    Individual instruction given by a tutor in regularly scheduled meetings (usually once a week).
+                                </div>
+                            </div>
+                        </li>
+                    
+
+                        <li class="list-group-item" style="border-left: none; border-right: none; border-radius: 0px; border-width: .5px; border-color: darkgray; text-align: left; font-size: 20px; padding: 0px;">
+
+                            <div class="row" style="cursor: pointer;" data-toggle="collapse" href="#course_9" role="button" aria-expanded="false" >
+                                <div class="col-md-9">
+                                    <div style="display: inline-block; margin: 10px;">
+                                        CSCI 399: Introduction to Hadoop and MapReduce (Independent Study)
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div style="text-align: right; padding-top: 5px; width: 100%; padding-bottom: 5px; margin: 5px; font-size: 20px;">
+                                        College of Charleston
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="collapse" id="course_9">
+                                <div style="padding: 10px; padding-left: 40px; padding-top: 0px; color: darkgreen; text-align: justify;">
+                                    Individual instruction given by a tutor in regularly scheduled meetings (usually once a week).
+                                </div>
+                            </div>
+                        </li>
+                    
+
+                        <li class="list-group-item" style="border-left: none; border-right: none; border-radius: 0px; border-width: .5px; border-color: darkgray; text-align: left; font-size: 20px; padding: 0px;">
+
+                            <div class="row" style="cursor: pointer;" data-toggle="collapse" href="#course_10" role="button" aria-expanded="false" >
+                                <div class="col-md-9">
+                                    <div style="display: inline-block; margin: 10px;">
+                                        CSCI 399: Developing and Deploying a Web-platform using Django (Independent Study)
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div style="text-align: right; padding-top: 5px; width: 100%; padding-bottom: 5px; margin: 5px; font-size: 20px;">
+                                        College of Charleston
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="collapse" id="course_10">
+                                <div style="padding: 10px; padding-left: 40px; padding-top: 0px; color: darkgreen; text-align: justify;">
+                                    Individual instruction given by a tutor in regularly scheduled meetings (usually once a week).
+                                </div>
+                            </div>
+                        </li>
+                    
+
+                        <li class="list-group-item" style="border-left: none; border-right: none; border-radius: 0px; border-width: .5px; border-color: darkgray; text-align: left; font-size: 20px; padding: 0px;">
+
+                            <div class="row" style="cursor: pointer;" data-toggle="collapse" href="#course_11" role="button" aria-expanded="false" >
+                                <div class="col-md-9">
+                                    <div style="display: inline-block; margin: 10px;">
+                                        DATA 210: Dataset Organization and Management
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div style="text-align: right; padding-top: 5px; width: 100%; padding-bottom: 5px; margin: 5px; font-size: 20px;">
+                                        College of Charleston
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="collapse" id="course_11">
+                                <div style="padding: 10px; padding-left: 40px; padding-top: 0px; color: darkgreen; text-align: justify;">
+                                    A course to introduce the structure of databases and the management of datasets for information extraction. Concepts include the relational and entity relationship models, and local and distributed storage and access. The preparation and management of datasets for analysis is covered, and includes data cleaning, reorganization and security.
+                                </div>
+                            </div>
+                        </li>
+                    
+
+                        <li class="list-group-item" style="border-left: none; border-right: none; border-radius: 0px; border-width: .5px; border-color: darkgray; text-align: left; font-size: 20px; padding: 0px;">
+
+                            <div class="row" style="cursor: pointer;" data-toggle="collapse" href="#course_12" role="button" aria-expanded="false" >
+                                <div class="col-md-9">
+                                    <div style="display: inline-block; margin: 10px;">
+                                        ITCS 2116: C Programming
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div style="text-align: right; padding-top: 5px; width: 100%; padding-bottom: 5px; margin: 5px; font-size: 20px;">
+                                        UNC Charlotte
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="collapse" id="course_12">
+                                <div style="padding: 10px; padding-left: 40px; padding-top: 0px; color: darkgreen; text-align: justify;">
+                                    A study of the programming language C. Data types, operators, functions, program structure, file I/O, storage classes, exceptions, concurrent programming, and the preprocessor.
+                                </div>
+                            </div>
+                        </li>
+                    
+
+                        <li class="list-group-item" style="border-left: none; border-right: none; border-radius: 0px; border-width: .5px; border-color: darkgray; text-align: left; font-size: 20px; padding: 0px;">
+
+                            <div class="row" style="cursor: pointer;" data-toggle="collapse" href="#course_13" role="button" aria-expanded="false" >
+                                <div class="col-md-9">
+                                    <div style="display: inline-block; margin: 10px;">
+                                        ITSC 2175: Logic and Algorithms
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div style="text-align: right; padding-top: 5px; width: 100%; padding-bottom: 5px; margin: 5px; font-size: 20px;">
+                                        UNC Charlotte
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="collapse" id="course_13">
+                                <div style="padding: 10px; padding-left: 40px; padding-top: 0px; color: darkgreen; text-align: justify;">
+                                    A study of discreet mathematical concepts.  Introduction to propositional calculus, predicate calculus, algorithms, logic functions, finite-state machines; and logic design. 
+                                </div>
+                            </div>
+                        </li>
+                    
+
+                        <li class="list-group-item" style="border-left: none; border-right: none; border-radius: 0px; border-width: .5px; border-color: darkgray; text-align: left; font-size: 20px; padding: 0px;">
+
+                            <div class="row" style="cursor: pointer;" data-toggle="collapse" href="#course_14" role="button" aria-expanded="false" >
+                                <div class="col-md-9">
+                                    <div style="display: inline-block; margin: 10px;">
+                                        ITSC 2214: Data Structures and Algorithms
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div style="text-align: right; padding-top: 5px; width: 100%; padding-bottom: 5px; margin: 5px; font-size: 20px;">
+                                        UNC Charlotte
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="collapse" id="course_14">
+                                <div style="padding: 10px; padding-left: 40px; padding-top: 0px; color: darkgreen; text-align: justify;">
+                                    A study of the theory and implementation of abstract data types (ADTs) including stacks, queues, and both general purpose and specialized trees and graphs.  Includes the implementation and analysis of algorithms related to the various data structures studied, including creation, searching, and traversal of ADTs.
+                                </div>
+                            </div>
+                        </li>
+                    
+
+                        <li class="list-group-item" style="border-left: none; border-right: none; border-radius: 0px; border-width: .5px; border-color: darkgray; text-align: left; font-size: 20px; padding: 0px;">
+
+                            <div class="row" style="cursor: pointer;" data-toggle="collapse" href="#course_15" role="button" aria-expanded="false" >
+                                <div class="col-md-9">
+                                    <div style="display: inline-block; margin: 10px;">
+                                        ITCS 2215: Design and Analysis of Algorithms
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div style="text-align: right; padding-top: 5px; width: 100%; padding-bottom: 5px; margin: 5px; font-size: 20px;">
+                                        UNC Charlotte
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="collapse" id="course_15">
+                                <div style="padding: 10px; padding-left: 40px; padding-top: 0px; color: darkgreen; text-align: justify;">
+                                    Introduction to the design and analysis of algorithms. Design techniques: divide-and-conquer, greedy approach, dynamic programming. Algorithm analysis: asymptotic notation, recurrence relation, time space complexity and tradeoffs. Study of sorting, searching, hashing, and graph algorithms.
+                                </div>
+                            </div>
+                        </li>
+                    
+
+                </ul>
+
+            </div>
+
+            <div class="tab-pane fade" id="teaching-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+                <ul class="list-group" style="border-radius: 0px;">
+
+                    
+
+                        <li class="list-group-item" style="border-left: none; border-right: none; border-radius: 0px; border-width: .5px; border-color: darkgray; text-align: left; font-size: 20px; padding: 0px;">
+
+                            <div class="row" style="cursor: pointer;" data-toggle="collapse" href="#course_100" role="button" aria-expanded="false" >
+                                <div class="col-md-9">
+                                    <div style="display: inline-block; margin: 10px;">
+                                        CSIS 698: Improving Audio Classifiers with Synthesized Data (Thesis Project)
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div style="text-align: right; padding-top: 5px; width: 100%; padding-bottom: 5px; margin: 5px; font-size: 20px;">
+                                        College of Charleston
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="collapse" id="course_100">
+                                <div style="padding: 10px; padding-left: 40px; padding-top: 0px; color: darkgreen; text-align: justify;">
+                                    Project Thesis is a three credit hour course for the completion of a formal master?s project thesis under faculty direction. A Project Thesis is characterized by a research project that applies or extends course topics through systems development.
+                                </div>
+                            </div>
+                        </li>
+                    
+
+                        <li class="list-group-item" style="border-left: none; border-right: none; border-radius: 0px; border-width: .5px; border-color: darkgray; text-align: left; font-size: 20px; padding: 0px;">
+
+                            <div class="row" style="cursor: pointer;" data-toggle="collapse" href="#course_101" role="button" aria-expanded="false" >
+                                <div class="col-md-9">
+                                    <div style="display: inline-block; margin: 10px;">
+                                        CSIS 691: Advanced Web Technologies (Independent Study)
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div style="text-align: right; padding-top: 5px; width: 100%; padding-bottom: 5px; margin: 5px; font-size: 20px;">
+                                        College of Charleston
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="collapse" id="course_101">
+                                <div style="padding: 10px; padding-left: 40px; padding-top: 0px; color: darkgreen; text-align: justify;">
+                                    This course consists of individual study of an agreed-upon topic under the direction of a faculty member and following a course of reading and other requirements proposed by the student and established by negotiation with the director. This course is intended to provide graduate students with an opportunity to study in an area of computer science, software engineering or information systems that is not generally offered. This course may be repeated once.
+                                </div>
+                            </div>
+                        </li>
+                    
+
+                        <li class="list-group-item" style="border-left: none; border-right: none; border-radius: 0px; border-width: .5px; border-color: darkgray; text-align: left; font-size: 20px; padding: 0px;">
+
+                            <div class="row" style="cursor: pointer;" data-toggle="collapse" href="#course_102" role="button" aria-expanded="false" >
+                                <div class="col-md-9">
+                                    <div style="display: inline-block; margin: 10px;">
+                                        CSIS 691: Deep Learning Using TensorFlow (Independent Study)
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div style="text-align: right; padding-top: 5px; width: 100%; padding-bottom: 5px; margin: 5px; font-size: 20px;">
+                                        College of Charleston
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="collapse" id="course_102">
+                                <div style="padding: 10px; padding-left: 40px; padding-top: 0px; color: darkgreen; text-align: justify;">
+                                    This course consists of individual study of an agreed-upon topic under the direction of a faculty member and following a course of reading and other requirements proposed by the student and established by negotiation with the director. This course is intended to provide graduate students with an opportunity to study in an area of computer science, software engineering or information systems that is not generally offered. This course may be repeated once.
+                                </div>
+                            </div>
+                        </li>
+                    
+
+                        <li class="list-group-item" style="border-left: none; border-right: none; border-radius: 0px; border-width: .5px; border-color: darkgray; text-align: left; font-size: 20px; padding: 0px;">
+
+                            <div class="row" style="cursor: pointer;" data-toggle="collapse" href="#course_103" role="button" aria-expanded="false" >
+                                <div class="col-md-9">
+                                    <div style="display: inline-block; margin: 10px;">
+                                        CSIS 656: Software Systems Design and Implementation
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div style="text-align: right; padding-top: 5px; width: 100%; padding-bottom: 5px; margin: 5px; font-size: 20px;">
+                                        College of Charleston
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="collapse" id="course_103">
+                                <div style="padding: 10px; padding-left: 40px; padding-top: 0px; color: darkgreen; text-align: justify;">
+                                    An introduction to the issues, techniques, strategies, representations and patterns used in designing and implementing software. Possible design topics include: specification of internal interfaces, architectural design, data design, user-interface design, design tools and evaluation of design. Possible implementation topics include: language-oriented issues, construction technologies, tools and formal constructions methods.
+                                </div>
+                            </div>
+                        </li>
+                    
+
+                        <li class="list-group-item" style="border-left: none; border-right: none; border-radius: 0px; border-width: .5px; border-color: darkgray; text-align: left; font-size: 20px; padding: 0px;">
+
+                            <div class="row" style="cursor: pointer;" data-toggle="collapse" href="#course_150" role="button" aria-expanded="false" >
+                                <div class="col-md-9">
+                                    <div style="display: inline-block; margin: 10px;">
+                                        ITCS 6155/8155: Knowledge-Based Systems
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div style="text-align: right; padding-top: 5px; width: 100%; padding-bottom: 5px; margin: 5px; font-size: 20px;">
+                                        UNC Charlotte
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="collapse" id="course_150">
+                                <div style="padding: 10px; padding-left: 40px; padding-top: 0px; color: darkgreen; text-align: justify;">
+                                    Knowledge systems; knowledge discovery; association rules; action rules, hierarchical classifiers, cascade classifiers, query languages and their semantics; cooperative and collaborative systems; ontology and metadata; flexible query answering; chase algorithms and data sanitization methods; decision support systems in medicine; and automatic indexing of music.
+                                </div>
+                            </div>
+                        </li>
+                    
+
+                </ul>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<a class="anchor" id="contact"></a>
+
+<div style="background-color: #f2f3f4; padding-top: 40px; padding-bottom: 40px;">
+    <div style="text-align: center; margin: 0 auto; width: 85%;">
+        <h2 style="display: inline-block; text-align: center; border-top: darkgray solid .5px; border-bottom: darkgray solid .5px; padding: 10px; margin: 0 auto; margin-bottom: 10px;">Get in Touch</h2>
+
+
+        <div class="row">
+            <div class="col-md-6" style="text-align: left">
+                <div style="background-color: white; display: inline-block; border-top: solid darkgray .5px; border-bottom: solid darkgray .5px; padding: 5px;">
+                    <div>The College of Charleston</div>
+                    <div>Computer Science Department</div>
+                    <div>Harbor Walk East, Room 304</div>
+                    <div>Charleston, SC 29424</div>
+                </div>
+
+                <!--div>
+                    <div style="background-color: white; margin-top: 30px; display: inline-block; border-top: solid darkgray .5px; border-bottom: solid darkgray .5px; padding: 5px;">My office hours this Spring of 2019 are:</div>
+                </div-->
+
+            </div>
+            <div class="col-md-6" style="text-align: right;">
+                <div>
+                    <div style="margin-top: 30px; background-color: white; display: inline-block; border-top: solid darkgray .5px; border-bottom: solid darkgray .5px; padding: 5px;">
+                        <div>hajjaa@cofc.edu</div>
+                        <div>843-953-6308</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+
+
+<div style="padding-top: 20px; background-color: #353942; margin: 0px;">
+
+    <!-- Copyright Bar -->
+    <section style="padding: 20px;">
+        <div class="container">
+            <p style="text-align: center; color: white;">
+                Designed and built with love. © 2019 <span style="font-family: 'Helvetica Neue'; color: cadetblue;">Ayman Hajja, PhD</span>. All Rights Reserved.
+            </p>
+        </div>
+    </section>
+    <!-- End Copyright Bar -->
+
+</div>
+
+</body>
+</html>

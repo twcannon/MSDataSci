@@ -14,7 +14,7 @@ fit <- lm(formula = CurrentWeek ~ LastWeek)
 summary <- summary(fit)
 summary
 
-qt <- qt(0.95, df = num_rows - 2)
+qt <- qt(0.975, df = num_rows - 2)
 qt
 B_1_hat <- coefficients(summary)["LastWeek", "Estimate"]
 B_1_hat
@@ -41,7 +41,44 @@ ts_test
 
 
 ## c)
-(y_hat <- predict(object = fit))
-x_star <- 400000
-unname(coefficients(fit)[1] + coefficients(fit)[2]*x_star)
+x_new <- 400000
+
+predict(object = fit, data.frame(LastWeek = x_new), interval = "prediction")
+
+
+
+
+#### 2.3
+## a)
+
+invoices <- read.table('../data/invoices.txt', header=TRUE)
+invoices
+Time <- invoices$Time
+Invoices <- invoices$Invoices
+num_rows <- nrow(invoices)
+
+invoices_fit <- lm(formula = Time ~ Invoices)
+invoices_summary <- summary(invoices_fit)
+
+confint(invoices_fit)[1,]
+
+
+## b)
+
+B_1_hat <- coefficients(invoices_summary)["Invoices", "Estimate"]
+B_1_error <- coefficients(invoices_summary)["Invoices", "Std. Error"]
+B_1_null = 0.01
+inv_t <- ( B_1_hat - B_1_null ) / B_1_error
+inv_t
+
+inv_pt <- pt(q = inv_t, lower.tail = FALSE, df = num_rows - 2)
+inv_ts_test <- 2*inv_pt
+inv_ts_test
+
+
+## c)
+
+inv_prediction <- predict(invoices_fit, newdata = data.frame(Invoices = 130), 
+        interval = "prediction", level = 0.95)
+inv_prediction
 

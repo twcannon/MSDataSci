@@ -7,5 +7,11 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/data510_django</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="heroku" uuid="2f2684cd-9bd7-404a-8daa-9d2a1910a83b">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://ec2-23-23-182-18.compute-1.amazonaws.com:5432/df963ri2cct09j</jdbc-url>
+    </data-source>
   </component>
 </project>

@@ -1,6 +1,6 @@
 #  Sheather Chapter 3 Examples.
 
-anscombe <- read.table("/Users/jonesm/Desktop/SheatherData/anscombe.txt",header=TRUE)
+anscombe <- read.table("/home/thomas/git/datascience/MSDataSci/MATH550/data/anscombe.txt",header=TRUE)
 attach(anscombe)
 head(anscombe)
 
@@ -46,7 +46,7 @@ abline(h=0,lwd=2)
 detach(anscombe)
 
 
-huber <- read.table("/Users/jonesm/Desktop/SheatherData/huber.txt",header=TRUE)
+huber <- read.table("/home/thomas/git/datascience/MSDataSci/MATH550/data/huber.txt",header=TRUE)
 attach(huber)
 head(huber)
 
@@ -127,7 +127,7 @@ stu[50]
 standres[50]
 
 
-bonds <- read.table("/Users/jonesm/Desktop/SheatherData/bonds.txt",header=TRUE)
+bonds <- read.table("/home/thomas/git/datascience/MSDataSci/MATH550/data/bonds.txt",header=TRUE)
 attach(bonds)
 head(bonds)
 
@@ -188,7 +188,7 @@ identify(CouponRate,cd1,Case)
 detach(bonds)
 
 
-production <- read.table("/Users/jonesm/Desktop/SheatherData/production.txt",header=TRUE)
+production <- read.table("/home/thomas/git/datascience/MSDataSci/MATH550/data/production.txt",header=TRUE)
 attach(production)
 head(production)
 
@@ -200,7 +200,7 @@ plot(m1,pch=19,col=10)
 
 detach(production)
 
-cleaning <- read.table("/Users/jonesm/Desktop/SheatherData/cleaning.txt",header=TRUE)
+cleaning <- read.table("/home/thomas/git/datascience/MSDataSci/MATH550/data/cleaning.txt",header=TRUE)
 attach(cleaning)
 head(cleaning)
 
@@ -265,7 +265,7 @@ plot(m2,pch=19)
 detach(cleaning)
 
 
-confood1 <- read.table("/Users/jonesm/Desktop/SheatherData/confood1.txt",header=TRUE)
+confood1 <- read.table("/home/thomas/git/datascience/MSDataSci/MATH550/data/confood1.txt",header=TRUE)
 attach(confood1)
 head(confood1)
 
@@ -312,7 +312,7 @@ beta1hat
 
 # Inverse Response Plot Example.
 
-responsetransformation <- read.table("/Users/jonesm/Desktop/SheatherData/responsetransformation.txt",header=TRUE)
+responsetransformation <- read.table("/home/thomas/git/datascience/MSDataSci/MATH550/data/responsetransformation.txt",header=TRUE)
 attach(responsetransformation)
 
 #Figure 3.25 on page 84
@@ -381,7 +381,7 @@ detach(responsetransformation)
 
 
 ##  Government Salay Data
-salarygov<-read.table("/Users/jonesm/Desktop/SheatherData/salarygov.txt",header=T)
+salarygov<-read.table("/home/thomas/git/datascience/MSDataSci/MATH550/data/salarygov.txt",header=T)
 attach(salarygov)
 head(salarygov)
 

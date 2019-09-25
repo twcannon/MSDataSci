@@ -38,7 +38,8 @@ plot(modelC)
 #95% confidence intervals on page 24
 round(confint(modelA,level=0.95),3)
 
-predict(modelA,38,interval="prediction",level=0.95)
+newdata = data.frame(ChestGirth=38)
+predict(modelA,newdata,interval="predict")
 
 
 
@@ -66,7 +67,7 @@ plot(leverage,pch=19,col=12)
 plot(palm.lm)
 
 
-palm.removed <- palm.removed[- c(13,50),]
+palm.removed <- palm[- c(13,50),]
 
 log.Buchanan <- log(palm.removed$Buchanan)
 log.Bush <- log(palm.removed$Bush)
@@ -76,9 +77,12 @@ abline(palm.lm2,lwd=2)
 
 palm.lm2<-lm(log.Buchanan~log.Bush)
 plot(palm.lm2)
-
+log(palm$Bush[50])
 round(confint(palm.lm2,level=0.95),3)
-
-predict(palm.lm2,38,interval="prediction",level=0.95)
+log_test_bush <- log(palm$Bush[50])
+newdata <- data.frame(Bush=log_test_bush)
+predict(palm.lm2,newdata,interval="predict")
+newdata <- data.frame(Bush=log(palm$Bush[13]))
+predict(palm.lm2,newdata,interval="predict")
 
 

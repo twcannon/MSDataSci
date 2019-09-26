@@ -20,7 +20,6 @@ plot(ChestGirth2, Weight, pch = 16, cex = 1.3, col = "blue", main = "Weight plot
 lm(Weight ~ ChestGirth2)
 abline(lm(Weight ~ ChestGirth2))
 modelB <- lm(Weight ~ ChestGirth2)
-par(mfrow = c(2,2))
 plot(modelB)
 
 #Part C
@@ -33,13 +32,16 @@ abline(lm(logWeight ~ logChestGirth))
 modelC <- lm(logWeight ~ logChestGirth)
 par(mfrow = c(2,2))
 plot(modelC)
+plot(modelC,pch=19,col=10,which=c(1,2,3,4))
+standres<-stdres(modelC)
+plot(standres~modelC$fitted.values,pch=19,col=12)
 
 #Part D
 #95% confidence intervals on page 24
-round(confint(modelA,level=0.95),3)
+round(confint(modelC,level=0.95),3)
 
 newdata = data.frame(ChestGirth=38)
-predict(modelA,newdata,interval="predict")
+predict(modelC,newdata=newdata,interval="predict",level=95)
 
 
 
@@ -49,7 +51,7 @@ predict(modelA,newdata,interval="predict")
 
 
 #Question 3
-
+#Part A
 data(PalmBeach)
 palm<-PalmBeach
 
@@ -64,25 +66,33 @@ leverage <- hatvalues(palm.lm)
 leverage
 plot(leverage,pch=19,col=12)
 
+#Part B
 plot(palm.lm)
 
 
+#Part C
 palm.removed <- palm[- c(13,50),]
 
 log.Buchanan <- log(palm.removed$Buchanan)
 log.Bush <- log(palm.removed$Bush)
 plot(log.Buchanan~log.Bush,col="purple",pch=19)
+palm.lm2<-lm(log.Buchanan~log.Bush)
 abline(palm.lm2,lwd=2)
 
-
-palm.lm2<-lm(log.Buchanan~log.Bush)
+#Part C
 plot(palm.lm2)
-log(palm$Bush[50])
+
+#Part D
 round(confint(palm.lm2,level=0.95),3)
-log_test_bush <- log(palm$Bush[50])
-newdata <- data.frame(Bush=log_test_bush)
-predict(palm.lm2,newdata,interval="predict")
-newdata <- data.frame(Bush=log(palm$Bush[13]))
-predict(palm.lm2,newdata,interval="predict")
 
 
+results.50 <- predict(palm.lm2,newdata=data.frame(log.Bush=c(log(palm$Bush[50]))),interval="prediction",level=0.95)
+exp(results.50)
+results.13 <- predict(palm.lm2,newdata=data.frame(log.Bush=c(log(palm$Bush[13]))),interval="prediction",level=0.95)
+exp(results.13)
+exp(results.50[1])
+exp(results.13[1])
+palm$Buchanan[50] <- exp(results.50[1])
+palm$Buchanan[13] <- exp(results.13[1])
+
+plot(Buchanan~Bush,data=palm,col="purple",pch=19)

@@ -40,9 +40,8 @@ plot(standres~modelC$fitted.values,pch=19,col=12)
 #95% confidence intervals on page 24
 round(confint(modelC,level=0.95),3)
 
-newdata = data.frame(ChestGirth=38)
-predict(modelC,newdata=newdata,interval="predict",level=95)
-
+results <- predict(modelC,newdata=data.frame(logChestGirth=c(log(38))),interval="prediction",level=0.95)
+exp(results)
 
 
 
@@ -85,6 +84,8 @@ plot(palm.lm2)
 #Part D
 round(confint(palm.lm2,level=0.95),3)
 
+palm$Buchanan[50]
+palm$Buchanan[13]
 
 results.50 <- predict(palm.lm2,newdata=data.frame(log.Bush=c(log(palm$Bush[50]))),interval="prediction",level=0.95)
 exp(results.50)

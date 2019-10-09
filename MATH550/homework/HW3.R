@@ -12,7 +12,10 @@ summary(model.profsal)
 # thirdq = 1,517.9*(years of experience) + 103,925.6 
 six.years <- 1517.9*(6) + 103925.6
 six.years
-# theestimate for six years ofexperience is $113,003
+# the estimate for six years of experience is $113,003
+
+
+
 
 # QUESTION 5.1
 overdue <- read.table('../data/overdue.txt', header=TRUE)
@@ -41,5 +44,21 @@ anova(model.anova)
 
 
 
-# QUESTION 4.2
+
+# QUESTION 5.2
+houston <- read.csv("../data/HoustonChronicle.csv",header=TRUE)
+head(houston)
+plot(x=houston$X.Low.income.students, y=houston$X.Repeating.1st.Grade)
+plot(houston$X.Low.income.students[houston$Year==1994],houston$X.Repeating.1st.Grade[houston$Year==1994],col=c("blue"),ylab="Repeat",xlab="Low Income")
+points(houston$X.Low.income.students[houston$Year==2004],houston$X.Repeating.1st.Grade[houston$Year==2004],col=c("red"))
+abline(model1)
+
+# PART A
+model1 <- lm(X.Repeating.1st.Grade ~ X.Low.income.students, data = houston)
+summary(model1)
+par(mfrow=c(2,2))
+plot(model1)
+# The fit appears good with a significant slope.
+
+# PART B
 

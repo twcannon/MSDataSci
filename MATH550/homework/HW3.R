@@ -25,6 +25,7 @@ head(overdue)
 plot(x=overdue$BILL, y=overdue$LATE)
 plot(overdue$BILL[overdue$type==0],overdue$LATE[overdue$type==0],col=c("black"),ylab="LATE",xlab="BILL",ylim=c(0, 100))
 points(overdue$BILL[overdue$type==1],overdue$LATE[overdue$type==1],col=c("red"))
+
 # visually, it looks like the type variable will play a role in the final model
 
 model.all <- lm(LATE~BILL, data=overdue)
@@ -35,6 +36,12 @@ model.sep <-lm(LATE~BILL+type, data=overdue)
 summary(model.sep)
 # as a quick test to tell if the type variable will be significant, we add in the variable to the model.
 # with an R squared of about .63, it is much better
+
+model.new <- lm(LATE~BILL+type+type:BILL,data=overdue)
+summary(model.new)
+plot(LATE~BILL,data=overdue)
+abline(model.new,col=c("blue"))
+abline(101.75-99.55,-0.19+0.36,col=c("red"))
 
 # the test to check if there is a difference in the mean overdue dates based on the type of account 
 model.anova <- lm(LATE~type, data=overdue)

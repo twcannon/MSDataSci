@@ -79,6 +79,29 @@ plot(grade.model4)
 # There is not much to show for the association between the low-income students and failure rates between the years
 anova(grade.model3,grade.model4)
 anova(grade.model1,grade.model4)
-
 # It is reasonable to not consider the Year in the model, but including low-income is better than not having it. 
 # The year does not influence the model, but there is an association between low-income students and higher grade repitions.
+
+
+
+
+# QUESTION 5.3
+latour <- read.table("../data/Latour.txt", header=TRUE)
+head(latour)
+
+# PART A
+latour.model1 <- lm(Quality ~ EndofHarvest + Rain + Rain:EndofHarvest, data = latour)
+summary(latour.model1)
+latour.model2 <- lm(Quality ~ EndofHarvest + Rain, data = latour)
+summary(latour.model2)
+anova(latour.model2,latour.model1)
+# the impact that rain causes on the harvest and wine quality is significant
+
+# PART B
+coefficients(latour.model1)
+# i
+-1/coefficients(latour.model1)
+# without rain, the days delayed give a point decrease of 31.8
+# ii
+-1/(coefficients(latour.model1)[2] + coefficients(latour.model1)[4])
+# with rain, the days delayed give a point decrease of 8.7

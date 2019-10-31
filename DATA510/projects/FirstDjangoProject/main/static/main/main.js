@@ -9,8 +9,8 @@ function doSomething() {
                 myVariableKey: myVariable
             },
             success: function (returnedData) {
-                $("#btn_02").text(returnedData['places'][0]['place name'])
-                console.log(returnedData['places'][0]['place name'])       
+                // $("#btn_02").text(returnedData['places'][0]['place name'])
+                // console.log(returnedData['places'][0]['place name'])       
             }
         }
     );

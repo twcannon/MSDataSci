@@ -3,3 +3,5 @@
 **/data/project_three
 
 *.pyc
+
+**/visual_env

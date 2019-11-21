@@ -13,5 +13,11 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://ec2-23-23-182-18.compute-1.amazonaws.com:5432/df963ri2cct09j</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="carto_etl_aws" uuid="66c2a7cf-9e80-49bf-a68d-1da8083f093b">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://database-1.cwiod2dgzk7p.us-east-1.rds.amazonaws.com:5432/postgres</jdbc-url>
+    </data-source>
   </component>
 </project>

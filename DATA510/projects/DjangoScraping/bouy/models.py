@@ -3,27 +3,24 @@ from django.db import models
 
 class CurrentWind(models.Model):
     Location=models.IntegerField()
-    DateTime=models.DateTimeField()
-    WDIR=models.FloatField()
-    WSPD=models.FloatField()
-    GST=models.FloatField()
-    PRES=models.FloatField()
-    PTDY=models.FloatField()
-    WTMP=models.FloatField()
-    WSPD10M=models.FloatField()
-    WSPD20M=models.FloatField()
+    WDIR=models.CharField(max_length=20)
+    WSPD=models.CharField(max_length=20)
+    GST=models.CharField(max_length=20)
+    PRES=models.CharField(max_length=20)
+    WTMP=models.CharField(max_length=20)
+    WSPD10M=models.CharField(max_length=20)
+    WSPD20M=models.CharField(max_length=20)
 
 
 class HighestOneMinWind(models.Model):
     Location=models.IntegerField()
-    DateTime=models.DateTimeField()
+    TIME=models.CharField(max_length=15)
     WSPD=models.FloatField()
     WDIR=models.CharField(max_length=3)
 
 
 class CurrentCondition(models.Model):
     Location=models.IntegerField()
-    DateTime=models.DateTimeField()
     WDIR=models.CharField(max_length=3)
     WSPD=models.FloatField()
     GST=models.FloatField()
@@ -41,13 +38,12 @@ class CurrentCondition(models.Model):
     TIDE=models.FloatField()
 
 
-class CurrnetWave(models.Model):
+class CurrentWave(models.Model):
     Location=models.IntegerField()
-    DateTime=models.DateTimeField()
     WVHT=models.FloatField()
     SwH=models.FloatField()
     SwP=models.FloatField()
-    SwD=models.FloatField()
+    SwD=models.CharField(max_length=3)
     WWH=models.FloatField()
     WWP=models.FloatField()
     WWD=models.CharField(max_length=3)
@@ -56,7 +52,6 @@ class CurrnetWave(models.Model):
 
 class DetailWave(models.Model):
     Location=models.IntegerField()
-    DateTime=models.DateTimeField()
     WVHT=models.FloatField()
     SwH=models.FloatField()
     SwP=models.FloatField()

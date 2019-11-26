@@ -17,7 +17,7 @@
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://database-1.cwiod2dgzk7p.us-east-1.rds.amazonaws.com:5432/postgres</jdbc-url>
+      <jdbc-url>jdbc:postgresql://carto-database.cwiod2dgzk7p.us-east-1.rds.amazonaws.com:5432/postgres</jdbc-url>
     </data-source>
   </component>
 </project>

@@ -1,0 +1,32 @@
+// table 1
+[
+    {    
+        "emp_id":1,
+        "f_name":"John",
+        "l_name":"Smith",
+        "zip_code":29492
+    },
+    {    
+        "emp_id":2,
+        "f_name":"Ben",
+        "l_name":"Adams",
+        "zip_code":29492
+    }
+]
+
+// table 2
+[
+    {
+        "emp_id":1,
+        "email":[
+            "john.s@gmail.com",
+            "john.sm@yahoo.com"
+        ]
+    },
+    {
+        "emp_id":2,
+        "email":[
+            "ben.a@gmail.com"
+        ]
+    }
+]

@@ -1,0 +1,107 @@
+(final_env) (base) thomas@thomas-UM16:~/git/datascience/MSDataSci/DATA510/Final/final$ python final.py 
+
+
+********4.5-star Trails********
+Table Rock State Park
+Jones Gap State Park
+Caesars Head State Park
+Oconee State Park
+Cleveland, South Carolina
+Keowee-Toxaway State Natural Area
+Paris Mountain State Park
+Table Rock State Park
+Oconee State Park
+Table Rock State Park
+Paris Mountain State Park
+Oconee State Park
+Oconee State Park
+Sumter National Forest
+Sumter National Forest
+Walhalla, South Carolina
+Sumter National Forest
+Sumter National Forest
+Sumter National Forest
+Reedy River Park
+Cleveland, South Carolina
+Table Rock State Park
+Fort Mill, South Carolina
+Caesars Head State Park
+Sumter National Forest
+Caesars Head State Park
+Jones Gap State Park
+Francis Marion National Forest
+North Augusta, South Carolina
+Eastatoe Creek Heritage Preserve
+Sumter National Forest
+Fort Mill, South Carolina
+Sumter National Forest
+Paris Mountain State Park
+Hilton Head Island, South Carolina
+Fort Mill, South Carolina
+Pleasant Ridge Park
+Jones Gap State Park
+Sunset, South Carolina
+Magnolia Plantation
+Harbison State Forest
+Table Rock State Park
+Harbison State Forest
+West Columbia, South Carolina
+Chau-Ram County Park
+Musgrove Mill State Historic Site
+Paris Mountain State Park
+Jocassee Gorges Management Area
+Croft State Park
+Ellicott Rock Wilderness
+Paris Mountain State Park
+Table Rock State Park
+Kings Mountain National Military Park
+West Columbia, South Carolina
+
+
+********4-star Trails********
+Caesars Head State Park
+Clemson Experimental Forest
+Sunset, South Carolina
+Congaree National Park
+Congaree National Park
+Lexington, South Carolina
+Paris Mountain State Park
+Cedar Falls Park
+Central, South Carolina
+Harbison State Forest
+Oconee State Park
+Lake Conestee Nature Park
+Cleveland, South Carolina
+Caesars Head State Park
+Forty Acre Rock Heritage Preserve
+Paris Mountain State Park
+Pickens, South Carolina
+Congaree National Park
+Table Rock State Park
+Paris Mountain State Park
+Clemson Experimental Forest
+Clemson Experimental Forest
+Lake Conestee Nature Park
+Caesars Head State Park
+Table Rock State Park
+Congaree National Park
+Harbison State Forest
+Chesnut Ridge Heritage Preserve
+Pomaria, South Carolina
+Paris Mountain State Park
+Hilton Head Island, South Carolina
+Marrington Plantation
+Paris Mountain State Park
+Oconee State Park
+Jones Gap State Park
+Huntington Beach State Park
+Caesars Head State Park
+Nantahala National Forest
+Sesquicentennial State Park
+Goose Creek, South Carolina
+Kings Mountain State Park
+
+
+********3.5-star Trails********
+Oconee State Park
+(final_env) (base) thomas@thomas-UM16:~/git/datascience/MSDataSci/DATA510/Final/final$ 

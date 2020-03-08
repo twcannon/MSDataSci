@@ -1,0 +1,61 @@
+BATSE HEADERS:
+
+1st parm (trig#): unique BATSE trigger number
+2nd parm (npts): total number of samples to follow, per energy channel
+3rd parm (nlasc): total number of DISCLA 64-ms samples concatenated prior to PREB
+4th parm (1preb): first PREB sample number after last 1.024-s DISCLA  sample
+
+
+
+#################################################
+
+
+
+
+READING OUTFILES
+
+GAUSSIAN:
+pulse=[amplitude, peak time, Gaussian sigma, background rate, background slope]
+
+NORRIS:
+print,cc,npulse,dof,pcerror
+   readf,1,bkgnd,bkslp
+   readf,1,bkgerr,bkserr
+   printf,2,''
+for i=0,npulse-1 do begin
+   readf,1,start,ampl,tau1,tau2,taupk
+   readf,1,e_start,e_ampl,e_tau1,e_tau2,e_taupk
+   readf,1,dur,kappa,fluen,dualflx
+   readf,1,e_dur,e_kappa,e_fluen,e_dualflx
+   printf,2,'ch ',j,',','pulse ',i+1
+
+
+#################################################
+
+CHIRPLETS
+
+wiki has good references   
+https://en.wikipedia.org/wiki/Chirplet_transform 
+
+REALLY GOOD ARTICLE  
+https://www.researchgate.net/publication/283126738_Asymmetric_chirplet_transform_for_sparse_representation_of_seismic_data 
+
+OMP   
+https://en.wikipedia.org/wiki/Matching_pursuit 
+
+good article   
+https://arxiv.org/pdf/1804.03239.pdf 
+
+og article  
+http://wearcam.org/chirplet/adaptive_chirplet1991/
+
+og article   
+http://wearcam.org/chirplet/vi91/index.htm 
+
+og article 
+http://wearcam.org/chirplet.pdf 
+
+links   
+http://wearcam.org/chirplet.htm
+ 
+

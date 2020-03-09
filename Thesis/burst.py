@@ -33,3 +33,12 @@ class Burst:
         if raw:
             print(('Raw Header: \n{}{}').format(self.header_names,self.header_data))
             print(('Raw data: \n{}').format(self.raw_data))
+
+
+    def draw_norris(self, time, start, ampl, tau1, tau2, background):
+        lam = np.exp(2*np.sqrt(tau1/tau2))
+        inten = ampl*lam*np.exp(-tau1/(time-start)-(time-start)/tau2)+background
+        for i in range(len(time)):
+            if time[i] <= start:
+                inten[i] = background[i]
+        return inten

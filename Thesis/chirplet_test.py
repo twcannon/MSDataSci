@@ -2,13 +2,13 @@ import math
 import  matplotlib.pyplot as plt
 import numpy as np
 
-def f(t):
+def f(t,phi):
     A   = 12.
     t_0 = 0.
     f_0 = 20.
     f_d = -1. # anti-chirping stretch  
     Q   = 5.   # width
-    phi = 1.   # offset
+
 
     d_t = t-t_0
     tau = Q/(2.*np.pi*f_0)
@@ -35,8 +35,25 @@ def f(t):
     return A*np.exp(-(d_t*d_t)/(tau*tau))*np.cos((2.*np.pi*f_0*d_t)+(np.pi*f_d*(d_t*d_t))+phi)
 
 
+
+def envelope(t):
+    A   = 12.
+    t_0 = 0.
+    f_0 = 20.
+    f_d = -1. # anti-chirping stretch  
+    Q   = 5.   # width
+
+
+    d_t = t-t_0
+    tau = Q/(2.*np.pi*f_0)
+
+    return A*np.exp(-(d_t*d_t)/(tau*tau))
+
 x = np.linspace(-.25, .25,num=1000)
 print(x)
-print(f(x))
-plt.plot(x,f(x), label = 'f(x)')
+plt.plot(x,f(x,1), label = 'asymmetric')
+plt.plot(x,f(x,0), label = 'symmetric')
+plt.plot(x,envelope(x), 'g:', label = 'envelope')
+plt.title('Chirplets - Gaussian Envelope')
+plt.legend(('asymmetric', 'symmetric', 'envelope'),shadow=True, loc=(0.01, 0.7), handlelength=1.5, fontsize=12)
 plt.show()

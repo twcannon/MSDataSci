@@ -32,6 +32,9 @@ ampl = 7599.8027
 tau1 = 11223.340
 tau2 = 0.48623697
 taupk = 21.948846
+min_range = -20
+max_range = 75
+
 
 # bg_height = 1047.2220
 # bg_slope = 0.025935641
@@ -40,6 +43,9 @@ taupk = 21.948846
 # tau1 = 4.1735936
 # tau2 = 2.2154609
 # taupk = 48.006471
+# min_range = 30.
+# max_range = 70.
+
 
 time = (np.linspace((-nlasc), (npts-nlasc),num=npts)*0.064)-2
 
@@ -50,39 +56,29 @@ residuals = four_channel_data - norris_model
 
 
 
-# def chirplet_model(time,start,ampl,tau1,tau2,background):
-# def chirplet_model(x,time,I):
-def chirplet_model(time, start, ampl, tau, phi, f_0, f_d):
+def envelope_model(time, env_type, start=None, ampl=None, tau=None, tau1=None, tau2=None, mean=None, sigma=None):
+    if env_type == 'norris':
+        lam = np.exp(2*np.sqrt(tau1/tau2))
+        return ampl*lam*np.exp(-tau1/(time-start)-(time-start)/tau2)
+    elif env_type == 'bayes_wave':
+        return ampl*np.exp(-((time-start)*(time-start))/(tau*tau))
+    elif env_type == 'gauss':
+        return ampl*np.exp(-(time-mean)**2/(2*sigma**2))
+    else:
+       return None
 
-    # lam = np.exp(2*np.sqrt(tau1/tau2))
-    # inten = x[1]*lam*np.exp(-tau1/(time-x[0])-(time-x[0])/tau2)
-    # inten = x[1]*np.exp(-((time-x[0])*(time-x[0]))/(x[2]*x[2]))
-    # model = (inten*(np.cos((2.*np.pi*x[4]*(time-x[0]))+(np.pi*x[5]*((time-x[0])*(time-x[0])))+x[3])))
-    inten = ampl*np.exp(-((time-start)*(time-start))/(tau*tau))
-    model = (inten*(np.cos((2.*np.pi*f_0*(time-start))+(np.pi*f_d*((time-start)*(time-start)))+phi)))
-    # for i in range(len(time)):
-    #     if time[i] <= x[0]:
-    #         model[i] = background[i]
+
+def chirp_model(time, start, ampl, tau, phi, f_0, f_d, tau1=None, tau2=None):
+    envelope = envelope_model(time, env_type='norris', start=start, ampl=ampl, tau1=tau1, tau2=tau2)
+    # envelope = envelope_model(time=time, env_type='bayes_wave', ampl=ampl, start=start, tau=tau)
+    # envelope = envelope_model(time=time, env_type='gauss', ampl=ampl, start=start, mean=tau1, sigma=tau2)
+    model = envelope*(np.cos((2.*np.pi*f_0*(time-start))+(np.pi*f_d*((time-start)*(time-start)))+phi))
     return model
 
 
-# def chirp_model(x,time):
-def chirp_model(time, start, ampl, tau, phi, f_0, f_d):
-
-    # lam = np.exp(2*np.sqrt(tau1/tau2))
-    # inten = x[1]*lam*np.exp(-tau1/(time-x[0])-(time-x[0])/tau2)
-    # inten = x[1]*np.exp(-((time-x[0])*(time-x[0]))/(x[2]*x[2]))
-    # model = (inten*(np.cos((2.*np.pi*x[4]*(time-x[0]))+(np.pi*x[5]*((time-x[0])*(time-x[0])))+x[3])))
-    inten = ampl*np.exp(-((time-start)*(time-start))/(tau*tau))
-    model = (inten*(np.cos((2.*np.pi*f_0*(time-start))+(np.pi*f_d*((time-start)*(time-start)))+phi)))
-    # for i in range(len(time)):
-    #     if time[i] <= x[0]:
-    #         model[i] = background[i]
-    return model
 
 
-min_range = -20
-max_range = 75
+
 
 
 I_train = residuals[time>=min_range] 
@@ -90,32 +86,41 @@ time_train = time[time>=min_range]
 I_train = I_train[time_train<=max_range]
 time_train = time_train[time_train<=max_range]
 
+# sigma = np.sqrt(I_train)
+
+# I_train = abs(I_train)
+# print(I_train) 
 
 
 # x0 = np.ones(6)
 
 
-# start,ampl,tau,phi,f_0,f_d
+# start,ampl,tau,phi,f_0,f_d,tau1,tau2
 # x_0 = [50,2000,3.3,0.6,0.1,-0.1]
-x_0 = [22.5260266,  3909.79703,  15.07599199, -5.32452589, 0.209558599, -0.00121162005]
+# x_0 = [20.,  4000.,  3., -5., 0.2, -0.01, 1000, 200]
+# x_0 = [2.25260155e+01,  3.90974125e+03,  3.07607879e+00, -5.32453311e+00, 2.09559818e-01, -1.21171999e-02]
+# x_0 = [20.,  4000.,  3., -5., 0.2, -0.01]
+# x_0 = [min_range,  ampl,  10, -5., 1.,  1.,  tau1,  tau2]
+# start,ampl,tau,phi,f_0,f_d,tau1,tau2
+x_0 = [start-2,  ampl,  0, 0, 0.01,  0.001,  tau1*1.1,  tau2]
 
 
-# res_lsq = least_squares(chirplet_model, x_0, args=(time_train, I_train),xtol=0)
-# res_lsq = least_squares(chirplet_model, x_0, args=(time_train, I_train),loss='cauchy', f_scale=0.01)
-# res_lsq = minimize(chirplet_model, x_0, args=(time_train, I_train))
-fitted = curve_fit(chirplet_model, time_train, I_train,p0=x_0)
+
+fitted = curve_fit(f=chirp_model, xdata=time_train, ydata=I_train, p0=x_0, maxfev=10000, check_finite=True)
+# fitted = curve_fit(f=chirp_model, xdata=time_train, ydata=I_train, p0=x_0, maxfev=10000, check_finite=True, bounds=(min_range, max_range))
+# fitted = curve_fit(f=chirp_model, xdata=time_train, ydata=I_train, p0=x_0, maxfev=5000, sigma=sigma, check_finite=True)
 
 print(fitted)
-
-
 
 
 # plt.plot(time,four_channel_data)
 # plt.plot(time,norris_model)
 plt.plot(time_train,I_train)
 # plt.plot(time_train,chirp_model(time_train,*x_0))
-plt.plot(time_train,chirp_model(time_train,*fitted[0]))
 plt.plot(time_train,chirp_model(time_train,*x_0))
+plt.plot(time_train,chirp_model(time_train,*fitted[0]))
+# plt.plot(time_train,chirp_model(time_train,*x_0))
+# plt.plot(time_train,burst.draw_norris(time_train,fitted[0][0],fitted[0][1],fitted[0][6],fitted[0][7],np.zeros(len(time_train))))
 plt.xlim(min_range, max_range)
 plt.ylim(-5000, 6000)
 # plt.ylim(-1000, 2500)

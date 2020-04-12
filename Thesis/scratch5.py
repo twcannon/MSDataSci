@@ -82,12 +82,15 @@ def envelope_model(time, env_type, start=None, ampl=None, tau=None, tau1=None, t
 
 
 
+sigma_train = np.sqrt(four_channel_data)
 
 
-
-I_train = residuals[time>=min_range] 
+I_train = residuals[time>=min_range]
 time_train = time[time>=min_range] 
+sigma_train = sigma_train[time>=min_range]
+
 I_train = I_train[time_train<=max_range]
+sigma_train = sigma_train[time_train<=max_range]
 time_train = time_train[time_train<=max_range]
 
 
@@ -154,7 +157,7 @@ x_0 = [start,  ampl/100,  0, 0.05, -0.00001,  0.01,  tau1,  tau2, ampl/2, start-
 
 
 
-fitted = curve_fit(f=chirp_model, xdata=time_train, ydata=I_train, p0=x_0, maxfev=1000000, check_finite=True)
+fitted = curve_fit(f=chirp_model, xdata=time_train, ydata=I_train, p0=x_0, maxfev=1000000, check_finite=True, sigma=sigma_train)
 # fitted = curve_fit(f=chirp_model, xdata=time_train, ydata=I_train, p0=x_0, maxfev=10000, check_finite=True, bounds=(min_range, max_range))
 # fitted = curve_fit(f=chirp_model, xdata=time_train, ydata=I_train, p0=x_0, maxfev=5000, sigma=sigma, check_finite=True)
 

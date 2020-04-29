@@ -1,3 +1,25 @@
+
+
+# EXAMPLE OUTPUT
+# learning_rate=.001
+# num_iterations=500
+
+'''######################
+489/500 0.40715414
+490/500 0.4065323
+491/500 0.40591168
+492/500 0.40529436
+493/500 0.4046798
+494/500 0.40406793
+495/500 0.40346035
+496/500 0.40285802
+497/500 0.4022586
+498/500 0.4016623
+499/500 0.40107042
+Num of correct is: 851 out of 1000
+'''######################
+
+
 import numpy as np
 import tensorflow.compat.v1 as tf
 from tensorflow.keras.datasets import mnist
@@ -5,7 +27,7 @@ tf.disable_v2_behavior()
 
 
 learning_rate=.001
-num_iterations=200
+num_iterations=500
 
 
 
@@ -105,15 +127,15 @@ def main():
 
         res = sess.run(predicted, feed_dict={training_x_placeholder: x_test})
         res = np.argmax(res, axis=1)
-        print("Result is: ",res)
-        print("Y Test Actual:",y_test,'\n')
+        # print("Result is: ",res)
+        # print("Y Test Actual:",y_test,'\n')
         
 
         num_correct = 0
         for idx, el in enumerate(y_test):
             if el == res[idx]:
                 num_correct += 1
-        print("Num of correct is: " + str(num_correct) + " out of "+str(num_iterations))
+        print("Num of correct is: " + str(num_correct) + " out of "+str(test_size))
 
 
 

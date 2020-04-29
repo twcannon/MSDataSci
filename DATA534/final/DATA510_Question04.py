@@ -1,71 +1,93 @@
-# For this question, you will be implementing an RNN to predict the stock data
-#
-# The data has already been prepared for you, and all you have to do is load the input and output
-#   (code for that already written)
-#
-# Details provided below
-#
+
+
+# EXAMPLE OUTPUT
+
+'''######################
+Epoch 2998/3000
+162/162 [==============================] - 0s 271us/sample - loss: 0.0517 - val_loss: 55.8079
+Epoch 2999/3000
+162/162 [==============================] - 0s 249us/sample - loss: 0.0421 - val_loss: 55.7748
+Epoch 3000/3000
+162/162 [==============================] - 0s 257us/sample - loss: 0.0533 - val_loss: 55.7304
+Predicted: [0 1 0]. Actual: [0 1 0]
+Predicted: [0 1 0]. Actual: [0 0 1]
+Predicted: [1 0 0]. Actual: [1 0 0]
+Predicted: [0 1 0]. Actual: [0 0 1]
+Predicted: [1 0 0]. Actual: [1 0 0]
+Predicted: [0 1 0]. Actual: [0 1 0]
+Predicted: [0 1 0]. Actual: [0 1 0]
+Predicted: [0 1 0]. Actual: [1 0 0]
+Predicted: [0 1 0]. Actual: [1 0 0]
+Predicted: [0 1 0]. Actual: [0 0 1]
+Predicted: [0 1 0]. Actual: [0 0 1]
+Predicted: [1 0 0]. Actual: [1 0 0]
+Predicted: [0 1 0]. Actual: [0 0 1]
+Predicted: [1 0 0]. Actual: [1 0 0]
+Predicted: [0 1 0]. Actual: [0 0 1]
+Predicted: [0 0 1]. Actual: [1 0 0]
+Predicted: [0 0 1]. Actual: [1 0 0]
+Predicted: [0 1 0]. Actual: [0 0 1]
+Predicted: [1 0 0]. Actual: [1 0 0]
+Predicted: [0 0 1]. Actual: [1 0 0]
+Predicted: [1 0 0]. Actual: [1 0 0]
+Predicted: [1 0 0]. Actual: [1 0 0]
+Predicted: [0 1 0]. Actual: [0 0 1]
+Predicted: [0 0 1]. Actual: [0 0 1]
+Predicted: [1 0 0]. Actual: [1 0 0]
+Predicted: [0 1 0]. Actual: [0 0 1]
+12/26 Correct
+'''######################
+
+
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.callbacks import EarlyStopping
 from tensorflow.keras.layers import Dense
 
-# Use this to train your model
 training_input = np.load('training_input.npy')
 training_output = np.load('training_output.npy')
-print(training_input.shape)
-print(training_output.shape)
-
-# Use this to set an early stopping
 validation_input = np.load('validation_input.npy')
 validation_output = np.load('validation_output.npy')
 
-# Create your architecture here
 
-# input, output = training_input, training_output
 model = tf.keras.models.Sequential()
+drop_out = 0.2
+iterations = 5000
 
-# The first layer is a LSTM RNN layer of 60 nodes, followed by a 'relu' activation function
-# def main():
-model.add(tf.keras.layers.LSTM(units=60, activation='relu',
-                               input_shape=(6, 2)))
+def main():
 
-# Give the first layer a dropout rate of .2
-model.add(tf.keras.layers.Dropout(0.2))
+    model.add(tf.keras.layers.LSTM(units=60, activation='relu', input_shape=(6, 2)))
+    model.add(tf.keras.layers.Dropout(drop_out))
 
-# The second layer is a traditional fully connected neural net layer of 40 nodes, followed by a 'relu' function
-model.add(tf.keras.layers.Dense(units=40, activation ='relu'))
-model.add(tf.keras.layers.Dropout(0.2))
+    model.add(tf.keras.layers.Dense(units=40, activation ='relu'))
+    model.add(tf.keras.layers.Dropout(drop_out))
 
-# Give the second layer a dropout rate of .2
-model.add(tf.keras.layers.Dropout(0.2))
-model.add(tf.keras.layers.Dense(units=3))
+    model.add(tf.keras.layers.Dense(units=3))
+    model.add(tf.keras.layers.Dropout(drop_out))
 
-# The output layer contains 3 nodes; use 'softmax' activation function since the labels are one-hot--encoded
-model.add(Dense(units=3, activation='softmax'))
+    model.add(Dense(units=3, activation='softmax'))
 
-# Use 'adam' optimizer with 'categorical_crossentropy' loss function
-model.compile(loss='categorical_crossentropy',
-              optimizer='adam')
+    model.compile(loss='categorical_crossentropy', optimizer='adam')
 
-# Create an early stopping monitor (see code we've written together). You can use same arguments used previously
-monitor = EarlyStopping(monitor='val_loss',
-                        min_delta=1e-3,
-                        patience=10,
-                        mode='auto',
-                        restore_best_weights=True)
+    monitor = EarlyStopping(monitor='val_loss', min_delta=0.01,patience=iterations,
+                            mode='auto', restore_best_weights=True)
 
-# Call the fit method and pass the training and validation data, and pass the 'monitor' as a callback funciton
-#   (again, refer to the code we've written on Tuesday last week)
-model.fit(training_input,
-          training_output,
-          validation_data=(validation_input, validation_output),
-          batch_size=162, callbacks=[monitor],
-          epochs=200)
+    model.fit(training_input, training_output,
+              validation_data=(validation_input, validation_output),
+              batch_size=162, callbacks=[monitor], epochs=iterations)
 
-predicted = model.predict(validation_input)
-print(predicted.shape)
-print(len(predicted))
-predicted = np.reshape(predicted, (len(predicted), 3)).tolist()
-for idx, p in enumerate(predicted):
-    print("Predicted: " + str(p) + ". Actual: " + str(validation_output[idx]))
+    predicted = model.predict(validation_input)
+    predicted = np.reshape(predicted, (len(predicted), 3)).tolist()
+    
+    num_correct = 0
+    for idx, p in enumerate(predicted):
+        zeros = np.array([0]*3)
+        p = np.array(p).astype(float)
+        zeros[np.argmax(p)] = 1
+        if str(zeros) == str(validation_output[idx]):
+            num_correct+=1
+        print("Predicted: " + str(zeros) + ". Actual: " + str(validation_output[idx]))
+    print(str(num_correct)+'/'+str(len(validation_output))+' Correct')
+
+if __name__ == "__main__":
+    main()

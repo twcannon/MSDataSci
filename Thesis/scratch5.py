@@ -9,11 +9,14 @@ from scipy.optimize import curve_fit
 from scipy.signal import hilbert, chirp
 
 
+pulse = '1114'
+
 # 00143: Norris Fit
-out_file = '/home/thomas/git/MSDataSci/Thesis/out_files/00143_b536_3_0.out'
-# out_file = '/home/thomas/git/MSDataSci/Thesis/out_files/00249_b464_3_0.out'
-burst_file = './sample_data/cat64ms.00143'
-# burst_file = './sample_data/cat64ms.00249'
+out_file = '/home/thomas/git/MSDataSci/Thesis/out_files/0'+pulse+'_b000_3_0.out'
+# out_file = '/home/thomas/git/MSDataSci/Thesis/out_files/00'+pulse+'_b000_3_0.out'
+# out_file = '/home/thomas/git/MSDataSci/Thesis/out_files/00'+pulse+'_b536_3_0.out'
+# out_file = '/home/thomas/git/MSDataSci/Thesis/out_files/00'+pulse+'_b464_3_0.out'
+burst_file = './sample_data/cat64ms.0'+pulse+''
 
 burst = Burst(burst_file)
 burst.parse_batse_file()
@@ -26,6 +29,91 @@ trig  = burst_meta['trig#']
 nlasc = burst_meta['nlasc']
 npts  = burst_meta['npts']
 
+# 1114
+bg_height = 526.65551
+bg_slope = -0.095278874
+start = -283.41411
+ampl = 430.68719
+tau1 = 3989672.5
+tau2 = 0.020447460
+taupk = 2.2056868
+min_range = -50.
+max_range = 200.
+y_min = -500
+y_max = 1500
+
+# # 647
+# bg_height = 526.65551
+# bg_slope = -0.095278874
+# start = -0.60816015
+# ampl = 745.10073
+# tau1 = 1.0396163
+# tau2 = 13.537072
+# taupk = 3.1432877
+# min_range = -50.
+# max_range = 200.
+# y_min = -500
+# y_max = 1500
+
+# # 548
+# bg_height = 542.26633
+# bg_slope = -0.12233601
+# start = -1.4599307
+# ampl = 312.91591
+# tau1 = 1.9577855
+# tau2 = 13.888112
+# taupk = 3.7544669
+# min_range = -30.
+# max_range = 200.
+# y_min = -200
+# y_max = 1000
+
+# bg_height = 568.34035
+# bg_slope = -0.12233601
+# start = -0.21628728
+# ampl = 1966.6737
+# tau1 = 0.37301360
+# tau2 = 1.7768601
+# taupk = 0.59783371
+# min_range = -20.
+# max_range = 20.
+# y_min = -750
+# y_max = 3000
+
+# bg_height = 620.19990
+# bg_slope = -0.33743619
+# start = -3.7879147
+# ampl = 235.19597
+# tau1 = 2.2989877
+# tau2 = 8.0194856
+# taupk = 0.50588302
+# min_range = -50.
+# max_range = 100.
+# y_min = -500
+# y_max = 1500
+
+# bg_height = 451.01793
+# bg_slope = 0.14736013
+# start = -29.530564
+# ampl = 201.25052
+# tau1 = 120.95145
+# tau2 = 28.873298
+# taupk = 29.564844
+# min_range = -50.
+# max_range = 200.
+# y_min = -500
+# y_max = 1000
+
+# bg_height = 1047.2220
+# bg_slope = 0.025935641
+# start = 44.965676
+# ampl = 2823.6814
+# tau1 = 4.1735936
+# tau2 = 2.2154609
+# taupk = 48.006471
+# min_range = 30.
+# max_range = 70.
+
 # bg_height = 1129.2054
 # bg_slope = -0.21606104
 # start = -51.924035
@@ -35,17 +123,6 @@ npts  = burst_meta['npts']
 # taupk = 21.948846
 # min_range = -20
 # max_range = 75
-
-
-bg_height = 1047.2220
-bg_slope = 0.025935641
-start = 44.965676
-ampl = 2823.6814
-tau1 = 4.1735936
-tau2 = 2.2154609
-taupk = 48.006471
-min_range = 30.
-max_range = 70.
 
 
 time = (np.linspace((-nlasc), (npts-nlasc),num=npts)*0.064)-2
@@ -164,12 +241,12 @@ fitted = curve_fit(f=chirp_model, xdata=time_train, ydata=I_train, p0=x_0, maxfe
 # print(fitted)
 
 
-plt.plot(time,four_channel_data, label='4-channel')
+plt.plot(time,four_channel_data,  label='4-channel')
 # plt.plot(time,norris_model)
 # plt.plot(time_train,I_train)
 
 plt.plot(time_train, norris_envelope_model(time_train,*[start,ampl,tau1,tau2])+(bg_slope*time_train)+bg_height, label='norris')
-plt.plot(time_train,I_train, label='residuals')
+plt.plot(time_train,I_train,  label='residuals')
 plt.plot(time_train,chirp_model(time_train,*fitted[0]), label='chirplet')
 plt.plot(time_train, norris_envelope_model(time_train,*[start,ampl,tau1,tau2])+(bg_slope*time_train)+chirp_model(time_train,*fitted[0])+bg_height, 'k', label='chirplet + norris')
 # plt.plot(time_train,amplitude_envelope)
@@ -182,11 +259,11 @@ plt.plot(time_train, norris_envelope_model(time_train,*[start,ampl,tau1,tau2])+(
 
 # plt.plot(time_train,burst.draw_norris(time_train,fitted[0][0],fitted[0][1],fitted[0][6],fitted[0][7],np.zeros(len(time_train))))
 plt.xlim(min_range, max_range)
-plt.ylim(-2000, 6000)
+plt.ylim(y_min, y_max)
 # plt.ylim(-1000, 2500)
 # plt.legend(('Residuals',),shadow=True, loc=(0.01, 0.8), handlelength=1.5, fontsize=12)
 # plt.legend(('BATSE 64ms data', 'Norris Fit'),shadow=True, loc=(0.01, 0.8), handlelength=1.5, fontsize=12)
 # plt.title('00143 Residual Plot')
 plt.legend()
-plt.title('BATSE Burst 00143')
+plt.title('BATSE Burst 00'+pulse)
 plt.show()
